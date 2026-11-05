@@ -1,0 +1,7 @@
+Tài khoản khách hàng mẫu — Kat
+
+Số điện thoại: 0912345678
+Mật khẩu: 123456
+Vai trò: Khách hàng
+
+Đăng nhập tại login.html bằng số điện thoại và mật khẩu để xem lịch sử đơn hàng và viết đánh giá.

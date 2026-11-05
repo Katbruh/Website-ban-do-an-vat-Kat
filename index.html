@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFFFFF"><!-- od-ignore: browser chrome follows the original Maika white background -->
+  <meta name="description" content="Khám phá thực đơn đồ ăn vặt Kat. Chọn món, thêm topping và đặt giao hàng hoặc đến lấy tại quán.">
+  <title>Kat — Quán ăn vặt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-page">
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <div class="utility-bar">
+    <div class="utility-inner page-container">
+      <span>Quán ăn vặt · Món ngon mỗi ngày</span>
+      <div><a href="tel:+84901234567">0901 234 567</a><a href="mailto:hello@kat.example">hello@kat.example</a></div>
+    </div>
+  </div>
+  <header class="site-header"><div class="header-inner page-container"><a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a><nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav><div class="header-tools"><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" data-cart-count>0</span></a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
+
+  <main id="main-content">
+    <section class="home-masthead" aria-label="Món ăn vặt Kat">
+      <div class="masthead-carousel" id="masthead-carousel" aria-roledescription="carousel" aria-label="Món gợi ý của Kat">
+        <div class="masthead-slides">
+          <article class="masthead-slide is-active" data-hero-slide aria-roledescription="slide" aria-label="1 trên 3" aria-hidden="false">
+            <img src="images/met-vien-chien-lon.jpg" alt="Mẹt viên chiên nóng giòn" fetchpriority="high">
+            <div class="masthead-photo-note"><span>Best Seller</span><strong>Mẹt viên chiên<br>nhỏ 35.000đ · lớn 55.000đ</strong></div>
+          </article>
+          <article class="masthead-slide" data-hero-slide aria-roledescription="slide" aria-label="2 trên 3" aria-hidden="true">
+            <img src="images/banh-trang-tron.jpg" alt="Bánh tráng trộn chua ngọt" loading="lazy">
+            <div class="masthead-photo-note"><span>Vị quen mỗi ngày</span><strong>Bánh tráng<br>trộn, cuốn, chấm, chiên</strong></div>
+          </article>
+          <article class="masthead-slide" data-hero-slide aria-roledescription="slide" aria-label="3 trên 3" aria-hidden="true">
+            <img src="images/tra-sua-truyen-thong.jpg" alt="Trà sữa Kat" loading="lazy">
+            <div class="masthead-photo-note"><span>Pha tại quán</span><strong>Trà sữa<br>chọn vị, thêm topping</strong></div>
+          </article>
+        </div>
+        <div class="masthead-copy">
+          <h1 id="home-title"><span class="masthead-title-nowrap">Món ngon để nhâm nhi,</span><br><span>vui miệng cả ngày.</span></h1>
+          <p class="hero-delivery-promise">Đặt món ngay.<br><span>Giao tận chỗ!</span></p>
+          <div class="delivery-feature-rule" aria-hidden="true"></div>
+          <p class="hero-lede">Chọn những món bạn thèm, và Kat sẽ giao ngay tới chỗ bạn!</p>
+          <div class="hero-actions"><a class="button button-primary" href="menu.html">Đặt Món Ngay! <span aria-hidden="true">→</span></a></div>
+        </div>
+        <button class="masthead-arrow masthead-prev" type="button" data-hero-prev aria-label="Món gợi ý trước">‹</button>
+        <button class="masthead-arrow masthead-next" type="button" data-hero-next aria-label="Món gợi ý tiếp theo">›</button>
+        <div class="masthead-dots" role="group" aria-label="Chọn món gợi ý"><button type="button" data-hero-to="0" aria-label="Món gợi ý 1" aria-pressed="true"></button><button type="button" data-hero-to="1" aria-label="Món gợi ý 2" aria-pressed="false"></button><button type="button" data-hero-to="2" aria-label="Món gợi ý 3" aria-pressed="false"></button></div>
+      </div>
+    </section>
+
+    <section class="home-offer-callout page-container" aria-labelledby="offers-title">
+      <div><p class="eyebrow">Combo tiết kiệm</p><h2 id="offers-title">Chọn combo, rủ thêm bạn.</h2><p>Nước tự chọn được tính sẵn trong combo. Xem phần ăn và giá rõ ràng trước khi thêm vào giỏ.</p></div>
+      <a class="button button-secondary" href="offers.html">Xem ưu đãi <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section id="featured" class="featured-section" aria-labelledby="featured-title">
+      <div class="page-container">
+        <div class="section-heading"><div><p class="eyebrow">Từ bếp Kat</p><h2 id="featured-title">Best Seller</h2><p class="section-lede">Mở từng món để chọn loại và xem giá trước khi thêm vào giỏ.</p></div><a class="text-link" href="menu.html">Xem toàn bộ thực đơn <span aria-hidden="true">→</span></a></div>
+        <div class="product-grid featured-grid" id="featured-grid"></div>
+      </div>
+    </section>
+
+    <section class="menu-preview page-container" aria-labelledby="menu-preview-title">
+      <div><h2 id="menu-preview-title">Đang thèm món gì?</h2><p>Tìm món, lọc theo giá; các loại cùng nhóm nằm chung trong một thẻ món.</p></div>
+      <a class="button button-primary" href="menu.html">Mở thực đơn <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section id="about" class="about-section" aria-labelledby="about-title">
+      <div class="page-container about-layout">
+        <div class="about-photo about-logo-panel"><img class="about-logo" src="images/kat-logo.png" alt="Logo Kat" loading="lazy"></div>
+        <div class="about-copy"><p class="eyebrow">Về Kat</p><h2 id="about-title">Bếp nhỏ, món ngon sẻ chia.</h2><p>Kat là quán ăn vặt nhỏ do bốn sinh viên cùng tạo nên để trang trải việc học và mang những món ngon đến mọi người.</p></div>
+      </div>
+    </section>
+
+    <section class="location-preview page-container" aria-labelledby="locations-title">
+      <div><p class="eyebrow">Ghé bếp Kat</p><h2 id="locations-title">Ghé Kat tại Quận 5 hoặc Quận 3</h2><p>Kat có hai cơ sở tại TP. HCM, cùng mở cửa từ 8:00 đến 18:00.</p></div>
+      <a class="text-link" href="stores.html">Xem cửa hàng <span aria-hidden="true">→</span></a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main page-container">
+      <div class="footer-brand"><a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a><p>Ăn vặt vui, nhớ vị Kat.</p><a href="tel:+84901234567">0901 234 567</a></div>
+      <div><strong>Đặt món</strong><a href="menu.html">Thực đơn</a><a href="offers.html">Ưu đãi hôm nay</a><a href="orders.html">Theo dõi đơn</a></div>
+      <div><strong>Về Kat</strong><a href="#about">Câu chuyện Kat</a><a href="stores.html">Chi nhánh</a><a href="feedback.html">Góp ý khách hàng</a><span>Thông tin tuyển dụng sẽ cập nhật</span></div>
+      <div><strong>Liên hệ</strong><a href="mailto:hello@kat.example">hello@kat.example</a><div class="footer-social-links" aria-label="Mạng xã hội của Kat"><a class="footer-social-link footer-social-zalo" href="https://zalo.me/kat-anvat-demo" target="_blank" rel="noopener noreferrer" aria-label="Zalo Kat" title="Zalo Kat">Z</a><a class="footer-social-link footer-social-facebook" href="https://www.facebook.com/kat.anvat.page.demo.2026" target="_blank" rel="noopener noreferrer" aria-label="Facebook Kat" title="Facebook Kat">f</a></div><span>Hằng ngày, 8:00–18:00</span></div>
+    </div>
+    <div class="footer-bottom"><div class="page-container"><span>© Kat · Ăn vặt vui, nhớ vị Kat.</span><span>Thông tin cửa hàng sẽ được cập nhật.</span></div></div>
+  </footer>
+  <div class="modal-backdrop" id="product-modal" hidden><section class="dialog product-dialog" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" tabindex="-1"><button class="icon-button dialog-close" type="button" data-close-modal aria-label="Đóng">×</button><div id="product-modal-content"></div></section></div>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <script src="js/initdata.js"></script><script src="js/toast.js"></script><script src="js/auth.js"></script><script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Đăng nhập quản trị cửa hàng Kat bằng số điện thoại.">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="robots" content="noindex">
+  <title>Đăng nhập quản trị — Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua nội dung đầu trang</a>
+  <main id="main-content" class="auth-main page-container">
+    <section class="auth-card admin-auth-card" aria-labelledby="admin-auth-title">
+      <a class="admin-auth-logo" href="index.html" aria-label="Kat, về trang chủ"><img src="images/kat-logo.png" alt=""></a>
+      <div class="auth-heading"><p class="eyebrow">Khu vực quản trị</p><h1 id="admin-auth-title">Đăng nhập quản trị</h1><p>Dùng số điện thoại quản trị để mở dashboard Kat.</p></div>
+      <form id="admin-login-form" class="form-stack">
+        <label>Số điện thoại<input name="phone" type="tel" inputmode="tel" autocomplete="username" placeholder="Nhập số điện thoại quản trị" required pattern="[0-9+ .()-]{9,15}"></label>
+        <label>Mật khẩu<input name="password" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required minlength="6"></label>
+        <button class="button button-primary button-wide" type="submit">Đăng nhập quản trị</button>
+      </form>
+      <a class="text-link auth-back" href="login.html">Đăng nhập khách hàng</a>
+    </section>
+  </main>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <script src="js/initdata.js"></script><script src="js/toast.js"></script><script src="js/auth.js"></script><script src="js/admin-login.js"></script>
+</body>
+</html>

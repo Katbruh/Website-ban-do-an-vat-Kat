@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Xem thực đơn đồ ăn vặt Kat, lọc món theo danh mục và giá, rồi tùy chỉnh khẩu vị.">
+  <meta name="theme-color" content="#FFFFFF"><!-- od-ignore: browser chrome follows the original Maika white background -->
+  <title>Thực đơn — Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="inner-page menu-page">
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="site-header"><div class="header-inner page-container"><a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a><nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav><div class="header-tools"><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" data-cart-count>0</span></a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
+  <main id="main-content" class="catalog-main page-container">
+    <section id="menu" class="menu-section" aria-label="Thực đơn Kat">
+      <div class="menu-toolbar">
+        <div class="category-list" id="category-list" aria-label="Lọc theo danh mục"></div>
+        <div class="menu-filters">
+          <label class="search-field"><span class="sr-only">Tìm món</span><input id="product-search" type="search" placeholder="Bạn đang thèm món gì?" autocomplete="off"><span class="search-symbol" aria-hidden="true">⌕</span></label>
+          <label class="select-field"><span class="sr-only">Lọc theo khoảng giá</span><select id="price-select"><option value="all">Mọi mức giá</option><option value="under15">Dưới 15.000đ</option><option value="15to30">15.000đ – 30.000đ</option><option value="over30">Trên 30.000đ</option></select></label>
+          <label class="select-field"><span class="sr-only">Sắp xếp món</span><select id="sort-select"><option value="featured">Món nổi bật</option><option value="price-asc">Giá thấp đến cao</option><option value="price-desc">Giá cao đến thấp</option><option value="rating">Đánh giá cao</option></select></label>
+        </div>
+      </div>
+      <p class="menu-count" id="result-count" aria-live="polite"></p>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <div class="product-load-sentinel" id="product-load-sentinel" aria-live="polite" hidden></div>
+      <div class="empty-state" id="empty-state" hidden><strong>Chưa tìm thấy món phù hợp</strong><p>Thử đổi từ khóa hoặc chọn danh mục khác nhé.</p></div>
+    </section>
+  </main>
+  <div class="modal-backdrop" id="product-modal" hidden><section class="dialog product-dialog" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" tabindex="-1"><button class="icon-button dialog-close" type="button" data-close-modal aria-label="Đóng">×</button><div id="product-modal-content"></div></section></div>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <script src="js/initdata.js"></script><script src="js/toast.js"></script><script src="js/auth.js"></script><script src="js/main.js"></script>
+</body>
+</html>

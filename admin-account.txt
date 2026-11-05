@@ -1,0 +1,7 @@
+Tài khoản quản trị mẫu — Kat
+
+Số điện thoại: 0900000000
+Mật khẩu: admin123
+Vai trò: Quản trị cửa hàng
+
+Đăng nhập tại admin-login.html bằng số điện thoại và mật khẩu.

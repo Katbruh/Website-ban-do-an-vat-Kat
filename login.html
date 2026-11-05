@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Đăng nhập hoặc tạo tài khoản Kat để xem đơn và đánh giá món ăn.">
+  <meta name="theme-color" content="#FFFFFF"><!-- od-ignore: browser chrome follows the original Maika white background -->
+  <title>Đăng nhập — Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="site-header"><div class="header-inner page-container"><a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a><nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav><div class="header-tools"><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" data-cart-count>0</span></a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
+  <main id="main-content" class="auth-main page-container">
+    <section class="auth-card" aria-labelledby="auth-title">
+      <div class="auth-heading"><p class="eyebrow">Chào bạn, mời vào bếp</p><h1 id="auth-title">Tài khoản Kat</h1><p>Đăng nhập hoặc tạo tài khoản để hoàn tất đơn hàng. Bạn vẫn có thể xem thực đơn và giỏ hàng khi chưa đăng nhập.</p></div>
+      <div class="segmented-control" role="tablist" aria-label="Chọn thao tác"><button id="auth-tab-login" type="button" class="segment is-active" role="tab" aria-selected="true" aria-controls="login-form" data-auth-tab="login">Đăng nhập</button><button id="auth-tab-register" type="button" class="segment" role="tab" aria-selected="false" aria-controls="register-form" data-auth-tab="register" tabindex="-1">Tạo tài khoản</button></div>
+      <form id="login-form" class="form-stack" role="tabpanel" aria-labelledby="auth-tab-login">
+        <label>Số điện thoại<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Nhập số điện thoại" required pattern="[0-9+ .()-]{9,15}"></label>
+        <label>Mật khẩu<input name="password" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required minlength="6"></label>
+        <button class="button button-primary button-wide" type="submit">Đăng nhập</button>
+      </form>
+      <form id="register-form" class="form-stack" role="tabpanel" aria-labelledby="auth-tab-register" hidden>
+        <div class="form-name-grid"><label>Họ<input name="firstname" autocomplete="family-name" placeholder="Nhập họ" required></label><label>Tên<input name="lastname" autocomplete="given-name" placeholder="Nhập tên" required></label></div>
+        <label>Email<input name="email" type="email" autocomplete="email" placeholder="Nhập địa chỉ email (không bắt buộc)"></label>
+        <label>Số điện thoại<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Nhập số điện thoại của bạn" required pattern="[0-9+ .()-]{9,15}"></label>
+        <label>Mật khẩu<input name="password" type="password" autocomplete="new-password" placeholder="Tạo mật khẩu" required minlength="6"></label>
+        <label>Xác nhận mật khẩu<input name="confirmPassword" type="password" autocomplete="new-password" placeholder="Nhập lại mật khẩu để xác nhận" required minlength="6"></label>
+        <button class="button button-primary button-wide" type="submit">Tạo tài khoản</button>
+      </form>
+      <a class="text-link auth-back" href="menu.html">← Tiếp tục xem thực đơn</a>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a><span>Đăng nhập để đặt món và xem đơn.</span><a href="tel:+84901234567">0901 234 567</a><a href="stores.html">Chi nhánh · 8:00–18:00</a></div></footer>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <script src="js/initdata.js"></script><script src="js/toast.js"></script><script src="js/auth.js"></script><script src="js/login.js"></script>
+</body>
+</html>
