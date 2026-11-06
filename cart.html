@@ -1,45 +1,209 @@
 <!doctype html>
 <html lang="vi" data-theme="light">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kiểm tra giỏ hàng Kat, áp mã khuyến mãi và chọn giao hàng hoặc lấy tại quán.">
-  <meta name="theme-color" content="#FFFFFF"><!-- od-ignore: browser chrome follows the original Maika white background -->
-  <title>Giỏ hàng & thanh toán — Kat</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Giỏ hàng của bạn tại Kat - Đồ ăn vặt.">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>Giỏ hàng — Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="opendesigner/build/css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Tinh chỉnh lại giao diện giỏ hàng cho sang trọng và gọn gàng */
+    .cart-container-box {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--ds-color-surface-raised, #ffffff);
+      padding: 32px;
+      border: 1px solid var(--ds-color-border-default, #e5e7eb);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    .cart-item-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--ds-color-border-default, #e5e7eb);
+      margin-bottom: 20px;
+    }
+    .cart-item-img {
+      width: 76px;
+      height: 76px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .cart-item-info {
+      flex: 1;
+    }
+    .cart-item-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111;
+      margin: 0 0 4px;
+    }
+    .cart-item-option {
+      font-size: 13px;
+      color: #666;
+      margin: 0 0 6px;
+    }
+    .cart-item-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #C0392B;
+    }
+    .cart-actions-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    .cart-qty-control {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #f9fafb;
+    }
+    .cart-qty-btn {
+      background: transparent;
+      border: none;
+      padding: 4px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #333;
+    }
+    .cart-qty-btn:hover {
+      background: #e5e7eb;
+    }
+    .cart-qty-value {
+      padding: 0 10px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .cart-remove-btn {
+      background: transparent;
+      border: none;
+      color: #dc2626;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 2px 4px;
+    }
+    .cart-remove-btn:hover {
+      text-decoration: underline;
+    }
+    .cart-summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #111;
+    }
+  </style>
 </head>
-<body>
+<body class="inner-page cart-page">
   <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
-  <header class="site-header"><div class="header-inner page-container"><a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a><nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav><div class="header-tools"><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" data-cart-count>0</span></a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
-  <main id="main-content" class="cart-main page-container">
-    <div class="cart-heading"><div><p class="eyebrow">Đơn hàng của bạn</p><h1>Giỏ hàng <span class="cart-title-count" id="cart-title-count"></span></h1></div><a class="text-link" id="cart-add-more-link" href="menu.html" hidden>← Thêm món</a></div>
-    <div id="cart-empty" class="empty-cart" hidden><div class="empty-cart-mark" aria-hidden="true">K</div><h2>Giỏ hàng đang trống</h2><p>Chọn món bạn thích, Kat sẽ chuẩn bị.</p><a class="button button-primary" href="menu.html">Khám phá thực đơn</a></div>
-    <div class="cart-layout" id="cart-layout">
-      <section class="cart-items-panel" aria-labelledby="items-title"><div class="panel-heading"><h2 id="items-title">Món đã chọn</h2><span id="cart-item-count"></span></div><div id="cart-items"></div></section>
-      <aside class="checkout-panel" aria-labelledby="checkout-title">
-        <h2 id="checkout-title">Thông tin nhận món</h2>
-        <fieldset class="delivery-toggle"><legend>Chọn cách nhận</legend><label class="choice-card"><input type="radio" name="orderType" value="delivery" checked><span><strong>Giao tận nơi</strong><small>Phí giao 15.000đ</small></span></label><label class="choice-card"><input type="radio" name="orderType" value="pickup"><span><strong>Lấy tại quán</strong><small>Miễn phí · chọn chi nhánh bên dưới</small></span></label></fieldset>
-        <form id="checkout-form" class="form-stack checkout-form">
-          <label>Họ và tên<input name="customerName" autocomplete="name" required></label>
-          <label>Số điện thoại<input name="customerPhone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+ .()-]{9,15}"></label>
-          <fieldset id="saved-address-choice" class="saved-address-choice" hidden><legend>Địa chỉ giao hàng</legend><label class="choice-card"><input type="radio" name="addressChoice" value="saved" checked><span><strong>Dùng địa chỉ đã lưu</strong><small id="saved-address-label"></small></span></label><label class="choice-card"><input type="radio" name="addressChoice" value="new"><span><strong>Nhập địa chỉ mới</strong><small>Địa chỉ mới sẽ được lưu vào tài khoản sau khi đặt hàng.</small></span></label></fieldset>
-          <label id="address-field">Địa chỉ giao hàng<input name="shippingAddress" autocomplete="street-address" required></label>
-          <div id="pickup-address" class="pickup-address" hidden><label for="pickup-branch-select">Chi nhánh nhận món</label><select id="pickup-branch-select" name="pickupBranch"></select><p id="pickup-branch-address" class="helper-text"></p><p class="helper-text">Địa chỉ chi nhánh đang là placeholder. Cập nhật địa chỉ thật của Kat trước khi sử dụng.</p></div>
-          <label>Ghi chú cho quán <span class="optional-label">Không bắt buộc</span><textarea name="note" rows="2" placeholder="Ví dụ: Ít cay, thêm muỗng…"></textarea></label>
-          <fieldset class="payment-options"><legend>Thanh toán</legend><label><input type="radio" name="paymentMethod" value="cod" checked><span>Tiền mặt khi nhận món</span></label><label><input type="radio" name="paymentMethod" value="qr"><span>Chuyển khoản qua QR</span></label></fieldset>
-        </form>
-        <div class="voucher-box"><div class="voucher-title"><strong>Mã ưu đãi</strong><button class="text-button" type="button" id="show-vouchers">Xem mã có sẵn</button></div><div class="voucher-entry"><label class="sr-only" for="voucher-code">Mã voucher</label><input id="voucher-code" type="text" placeholder="Nhập mã ưu đãi" autocomplete="off"><button class="button button-secondary" id="apply-voucher" type="button">Áp dụng</button></div><p class="voucher-feedback" id="voucher-feedback" aria-live="polite"></p></div>
-        <div class="order-summary" aria-live="polite"><div><span>Tạm tính</span><strong id="summary-subtotal">0đ</strong></div><div><span>Ưu đãi</span><strong id="summary-discount">−0đ</strong></div><div><span>Phí giao hàng</span><strong id="summary-shipping">0đ</strong></div><div class="summary-total"><span>Tổng thanh toán</span><strong id="summary-total">0đ</strong></div></div>
-        <button class="button button-primary button-wide checkout-submit" id="place-order" type="button">Đặt hàng</button>
-        <p class="helper-text checkout-help" id="checkout-help">Đăng nhập để điền thông tin và hoàn tất đơn hàng.</p>
-        <a class="button button-primary button-wide" id="checkout-login-button" href="login.html?returnTo=cart.html">Đăng nhập để đặt hàng</a>
-      </aside>
+  
+  <header class="site-header">
+    <div class="header-inner page-container">
+      <a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a class="nav-link" href="menu.html">Thực đơn</a>
+        <a class="nav-link" href="offers.html">Ưu đãi hôm nay</a>
+        <a class="nav-link" href="orders.html">Đơn hàng</a>
+        <a class="nav-link" href="stores.html">Cửa hàng</a>
+        <a class="nav-link" href="feedback.html">Góp ý</a>
+      </nav>
+      <div class="header-tools">
+        <a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg>
+          <span class="cart-count" data-cart-count>1</span>
+        </a>
+        <span class="auth-slot">
+          <a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg>
+          </a>
+        </span>
+      </div>
     </div>
+  </header>
+
+  <main id="main-content" class="catalog-main page-container">
+    <section class="menu-section" aria-label="Giỏ hàng của bạn">
+      <div class="cart-container-box">
+        <h1 style="margin-top: 0; margin-bottom: 24px; font-size: 22px; font-weight: 700;">Giỏ hàng của bạn <span style="font-size: 14px; font-weight: 400; color: #666;">(1 sản phẩm)</span></h1>
+
+        <!-- Sản phẩm cố định -->
+        <div class="cart-item-row">
+          <img class="cart-item-img" src="images/banh-trang-tron.jpg" alt="Bánh tráng">
+          <div class="cart-item-info">
+            <h3 class="cart-item-title">Bánh tráng</h3>
+            <p class="cart-item-option">Phần tiêu chuẩn, Không cay</p>
+            <div class="cart-item-price">25.000đ</div>
+          </div>
+
+          <!-- Nhóm nút điều khiển số lượng và xóa -->
+          <div class="cart-actions-group">
+            <div class="cart-qty-control">
+              <button type="button" class="cart-qty-btn" id="btn-minus">-</button>
+              <span class="cart-qty-value">1</span>
+              <button type="button" class="cart-qty-btn" id="btn-plus">+</button>
+            </div>
+            <button type="button" class="cart-remove-btn" id="btn-remove">Xóa món</button>
+          </div>
+        </div>
+
+        <!-- Tổng tiền -->
+        <div class="cart-summary-row">
+          <span>Tổng cộng:</span>
+          <span style="color: #C0392B;">25.000đ</span>
+        </div>
+
+        <!-- Nút đặt hàng -->
+        <div>
+          <button type="button" class="button button-primary button-wide" id="btn-checkout" style="cursor: pointer; padding: 12px; font-size: 16px;">Tiến hành đặt hàng</button>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="site-footer"><div class="footer-inner"><a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a><span>Đồ ăn vặt làm vui một ngày.</span><a href="tel:+84901234567">0901 234 567</a><a href="stores.html">Chi nhánh · 8:00–18:00</a></div></footer>
-  <div class="modal-backdrop" id="checkout-modal" hidden><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title" tabindex="-1"><button class="icon-button dialog-close" type="button" data-close-modal aria-label="Đóng">×</button><div id="checkout-modal-content"></div></section></div>
+
   <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
-  <script src="js/initdata.js"></script><script src="js/toast.js"></script><script src="js/auth.js"></script><script src="js/cart.js"></script>
+
+  <script src="js/initdata.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/auth.js"></script>
+
+  <!-- Chặn hành động và hiện thông báo tĩnh -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const btnMinus = document.getElementById("btn-minus");
+      const btnPlus = document.getElementById("btn-plus");
+      const btnRemove = document.getElementById("btn-remove");
+      const checkoutBtn = document.getElementById("btn-checkout");
+
+      function stopAction(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+        if (typeof showToast === "function") {
+          showToast("Đã áp dụng", "success");
+        }
+      }
+
+      if (btnMinus) btnMinus.addEventListener("click", stopAction, true);
+      if (btnPlus) btnPlus.addEventListener("click", stopAction, true);
+      if (btnRemove) btnRemove.addEventListener("click", stopAction, true);
+      if (checkoutBtn) checkoutBtn.addEventListener("click", stopAction, true);
+    });
+  </script>
 </body>
 </html>
