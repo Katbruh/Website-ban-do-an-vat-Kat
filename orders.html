@@ -1,154 +1,26 @@
 <!doctype html>
 <html lang="vi" data-theme="light">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#FFFFFF"><!-- od-ignore: browser chrome follows the original Maika white background -->
-    <meta name="description" content="Tra cứu tình trạng đơn hàng Kat bằng số điện thoại đặt hàng.">
-    <title>Theo dõi đơn hàng — Kat</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFFFFF"><!-- od-ignore: browser chrome follows the original Maika white background -->
+  <meta name="description" content="Tra cứu tình trạng đơn hàng Kat bằng số điện thoại đặt hàng.">
+  <title>Theo dõi đơn hàng — Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
-
-    <header class="site-header">
-        <div class="header-inner page-container">
-            <a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ">
-                <img class="brand-logo" src="images/kat-logo.png" alt="">
-            </a>
-            <nav class="main-nav" aria-label="Điều hướng chính">
-                <a class="nav-link" href="menu.html">Thực đơn</a>
-                <a class="nav-link" href="offers.html">Ưu đãi hôm nay</a>
-                <a class="nav-link" href="orders.html" aria-current="page">Đơn hàng</a>
-                <a class="nav-link" href="stores.html">Cửa hàng</a>
-                <a class="nav-link" href="feedback.html">Góp ý</a>
-            </nav>
-            <form class="header-search" action="menu.html" method="get" novalidate style="display:flex; gap:6px; align-items:center;">
-                <input type="search" name="q" placeholder="Tìm món ăn..." aria-label="Tìm món ăn" style="padding:6px 10px; border:1px solid #ddd; border-radius:6px; font-size:0.9rem;">
-                <button type="submit" class="button button-primary" style="padding:6px 12px; font-size:0.9rem;">Tìm</button>
-            </form>
-            <div class="header-tools">
-                <a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng">
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg>
-                    <span class="cart-count" data-cart-count>3</span>
-                </a>
-                <span class="auth-slot">
-                    <a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg>
-                    </a>
-                </span>
-            </div>
-        </div>
-    </header>
-
-    <main id="main-content" class="orders-main page-container">
-        <div class="orders-intro">
-            <h1>Theo dõi đơn hàng</h1>
-            <p>Nhập số điện thoại đã dùng khi đặt món để xem tình trạng đơn.</p>
-        </div>
-
-        <section class="order-lookup-card" aria-labelledby="lookup-title">
-            <h2 id="lookup-title">Tra cứu đơn của bạn</h2>
-            <form id="order-lookup-form" class="order-lookup-form" novalidate>
-                <label>
-                    Số điện thoại đặt hàng
-                    <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Nhập số điện thoại" value="0912345678">
-                </label>
-                <button class="button button-primary" type="submit">Xem tình trạng đơn</button>
-            </form>
-            <p class="order-lookup-error" id="order-lookup-error" role="status" hidden>Chưa tìm thấy đơn hàng bằng số điện thoại này. Kiểm tra lại số nhé.</p>
-        </section>
-
-        <section class="order-result" id="order-result" aria-live="polite" hidden></section>
-
-        <section class="purchase-history" id="purchase-history" aria-labelledby="purchase-history-title">
-            <div class="section-heading">
-                <div><h2 id="purchase-history-title">Lịch sử mua hàng</h2></div>
-            </div>
-
-            <div class="purchase-history-list" id="purchase-history-list">
-                <article class="purchase-order-card">
-                    <div class="purchase-order-heading">
-                        <div>
-                            <p class="eyebrow">Đơn hàng</p>
-                            <h3>#KAT-1028</h3>
-                            <p class="helper-text">Đặt lúc 10/05/2025 · 14:30</p>
-                        </div>
-                        <span class="status-badge status-preparing">Đang chuẩn bị</span>
-                    </div>
-                    <ul class="purchase-order-items">
-                        <li><span>Mẹt viên chiên thập cẩm (Mẹt lớn) × 1</span><strong>55.000đ</strong></li>
-                        <li><span>Bánh tráng trộn bò khô trứng cút × 2</span><strong>50.000đ</strong></li>
-                        <li><span>Trà tắc xí muội khổng lồ × 1</span><strong>15.000đ</strong></li>
-                    </ul>
-                    <div class="purchase-order-summary">
-                        <span>273 An Dương Vương, Quận 5, TP.HCM</span>
-                        <strong>125.000đ</strong>
-                    </div>
-                    <a class="text-link" href="order-success.html">Xem chi tiết đơn hàng →</a>
-                </article>
-
-                <!-- Đơn hàng mẫu 2 -->
-                <article class="purchase-order-card">
-                    <div class="purchase-order-heading">
-                        <div>
-                            <p class="eyebrow">Đơn hàng</p>
-                            <h3>#KAT-1019</h3>
-                            <p class="helper-text">Đặt lúc 06/05/2025 · 19:15</p>
-                        </div>
-                        <span class="status-badge status-completed">Hoàn thành</span>
-                    </div>
-                    <ul class="purchase-order-items">
-                        <li><span>Chân gà sả tắc rút xương (Hộp lớn) × 1</span><strong>65.000đ</strong></li>
-                        <li><span>Xoài lắc muối tôm × 1</span><strong>25.000đ</strong></li>
-                        <li><span>Trà đào cam sả × 1</span><strong>25.000đ</strong></li>
-                    </ul>
-                    <div class="purchase-order-summary">
-                        <span>273 An Dương Vương, Quận 5, TP.HCM</span>
-                        <strong>115.000đ</strong>
-                    </div>
-                    <a class="text-link" href="order-success.html">Xem chi tiết đơn hàng →</a>
-                </article>
-
-                <!-- Đơn hàng mẫu 3 -->
-                <article class="purchase-order-card">
-                    <div class="purchase-order-heading">
-                        <div>
-                            <p class="eyebrow">Đơn hàng</p>
-                            <h3>#KAT-0984</h3>
-                            <p class="helper-text">Đặt lúc 01/05/2025 · 16:00</p>
-                        </div>
-                        <span class="status-badge status-completed">Hoàn thành</span>
-                    </div>
-                    <ul class="purchase-order-items">
-                        <li><span>Combo Ăn Vặt Xế Chiều × 1</span><strong>89.000đ</strong></li>
-                    </ul>
-                    <div class="purchase-order-summary">
-                        <span>Lấy tại quán (Chi nhánh Quận 5)</span>
-                        <strong>89.000đ</strong>
-                    </div>
-                    <a class="text-link" href="order-success.html">Xem chi tiết đơn hàng →</a>
-                </article>
-            </div>
-        </section>
-
-        <p class="orders-help">Cần hỗ trợ? Gọi <a href="tel:+84901234567">0901 234 567</a> hoặc gửi email đến <a href="mailto:hello@kat.example">hello@kat.example</a>.</p>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a>
-            <span>Ăn vặt vui, nhớ vị Kat.</span>
-            <a href="tel:+84901234567">0901 234 567</a>
-            <a href="stores.html">Chi nhánh · 8:00–18:00</a>
-        </div>
-    </footer>
-
-    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
-    <script src="js/toast.js"></script>
-    <script src="js/orders.js"></script>
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="site-header"><div class="header-inner page-container"><a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a><nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav><div class="header-tools"><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" data-cart-count>0</span></a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
+  <main id="main-content" class="orders-main page-container">
+    <div class="orders-intro"><h1>Theo dõi đơn hàng</h1><p>Nhập số điện thoại đã dùng khi đặt món để xem tình trạng đơn.</p></div>
+    <section class="order-lookup-card" aria-labelledby="lookup-title"><h2 id="lookup-title">Tra cứu đơn của bạn</h2><form id="order-lookup-form" class="order-lookup-form"><label>Số điện thoại đặt hàng<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Nhập số điện thoại"></label><button class="button button-primary" type="submit">Xem tình trạng đơn</button></form><p class="order-lookup-error" id="order-lookup-error" role="status" hidden>Chưa tìm thấy đơn hàng bằng số điện thoại này. Kiểm tra lại số nhé.</p></section>
+    <section class="order-result" id="order-result" aria-live="polite" hidden></section>
+    <section class="purchase-history" id="purchase-history" aria-labelledby="purchase-history-title"><div class="section-heading"><div><h2 id="purchase-history-title">Lịch sử mua hàng</h2></div></div><div class="purchase-history-list" id="purchase-history-list"></div></section>
+    <p class="orders-help">Cần hỗ trợ? Gọi <a href="tel:+84901234567">0901 234 567</a> hoặc gửi email đến <a href="mailto:hello@kat.example">hello@kat.example</a>.</p>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a><span>Ăn vặt vui, nhớ vị Kat.</span><a href="tel:+84901234567">0901 234 567</a><a href="stores.html">Chi nhánh · 8:00–18:00</a></div></footer>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <script src="js/initdata.js"></script><script src="js/toast.js"></script><script src="js/auth.js"></script><script src="js/orders.js"></script>
 </body>
 </html>
