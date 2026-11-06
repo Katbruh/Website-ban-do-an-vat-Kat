@@ -1,37 +1,75 @@
 <!doctype html>
 <html lang="vi" data-theme="light">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Trang quản trị Kat: quản lý món, danh mục, đơn hàng, người dùng, voucher và đánh giá.">
-  <meta name="theme-color" content="#FFFFFF"><!-- od-ignore: browser chrome follows the original Maika white background -->
-  <title>Quản trị — Kat</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tổng quan — khu vực quản trị Kat.">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="robots" content="noindex">
+  <title>Tổng quan · Quản trị Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
 </head>
-<body>
+<body class="admin-page">
   <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
-  <header class="site-header"><div class="header-inner page-container"><a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""><span class="admin-wordmark">Quản trị</span></a><nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav><div class="header-tools"><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" data-cart-count>0</span></a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
+  <header class="site-header admin-site-header">
+    <div class="header-inner page-container">
+      <a class="brand-lockup" href="admin.html" aria-label="Kat, tổng quan quản trị">
+        <img class="brand-logo" src="images/kat-logo.png" alt="">
+        <span class="admin-wordmark">Quản trị</span>
+      </a>
+      <div class="admin-header-actions"><a class="button button-secondary" href="admin-login.html">Đăng xuất</a></div>
+    </div>
+  </header>
   <main id="main-content" class="admin-main page-container">
-    <div class="admin-heading"><div><p class="eyebrow">Bếp Kat · Quản lý</p><h1 id="admin-view-title">Tổng quan</h1></div><button class="button button-primary" id="admin-add-action" type="button" hidden>Thêm mới</button></div>
+    <div class="admin-heading"><div><p class="eyebrow">Bếp Kat · Quản trị</p><h1>Tổng quan</h1></div></div>
     <div class="admin-layout">
       <nav class="admin-nav" aria-label="Mục quản trị">
-        <button class="admin-nav-link is-active" data-admin-view="overview" type="button">Tổng quan</button>
-        <button class="admin-nav-link" data-admin-view="products" type="button">Món ăn</button>
-        <button class="admin-nav-link" data-admin-view="categories" type="button">Danh mục</button>
-        <button class="admin-nav-link" data-admin-view="orders" type="button">Đơn hàng</button>
-          <button class="admin-nav-link" data-admin-view="combos" type="button">Combo</button>
-        <button class="admin-nav-link" data-admin-view="vouchers" type="button">Voucher</button>
-        <button class="admin-nav-link" data-admin-view="reviews" type="button">Đánh giá</button>
-          <button class="admin-nav-link" data-admin-view="feedback" type="button">Góp ý</button>
-        <button class="admin-nav-link" data-admin-view="users" type="button">Tài khoản</button>
+<a class="admin-nav-link is-active" href="admin.html" aria-current="page">Tổng quan</a>
+<a class="admin-nav-link" href="admin-products.html">Món ăn</a>
+<a class="admin-nav-link" href="admin-categories.html">Danh mục</a>
+<a class="admin-nav-link" href="admin-orders.html">Đơn hàng</a>
+<a class="admin-nav-link" href="admin-combos.html">Combo</a>
+<a class="admin-nav-link" href="admin-vouchers.html">Voucher</a>
+<a class="admin-nav-link" href="admin-reviews.html">Đánh giá</a>
+<a class="admin-nav-link" href="admin-feedback.html">Góp ý</a>
+<a class="admin-nav-link" href="admin-users.html">Tài khoản</a>
       </nav>
-      <section class="admin-content" id="admin-content" aria-live="polite"></section>
+      <section class="admin-content">
+
+<section class="stats-grid" aria-label="Số liệu tổng quan">
+  <article class="stat-card"><span>Tổng doanh thu</span><strong>693.000đ</strong></article>
+  <article class="stat-card"><span>Tổng đơn hàng</span><strong>12</strong><small>Tất cả trạng thái</small></article>
+  <article class="stat-card"><span>Đơn chờ xác nhận</span><strong>1</strong></article>
+  <article class="stat-card"><span>Món bán chạy nhất</span><strong>Mẹt viên chiên</strong><small>3 phần</small></article>
+</section>
+<section class="admin-section">
+  <div class="admin-section-heading"><div><p class="eyebrow">Báo cáo bán hàng</p><h2>Top 5 khách hàng</h2><p class="helper-text">Chọn khoảng ngày để xem thống kê.</p></div></div>
+  <div class="admin-filter-grid report-date-filter">
+    <label>Từ ngày<input type="date" data-demo-change-message="Đã bấm nút."></label>
+    <label>Đến ngày<input type="date" data-demo-change-message="Đã bấm nút."></label>
+    <button class="button button-secondary" type="button" data-demo-action data-message="Đã bấm nút.">Xem thống kê</button>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>Hạng</th><th>Khách hàng</th><th>Số đơn</th><th>Tổng mua</th><th>Chi tiết đơn hàng</th></tr></thead><tbody><tr><td>1</td><td><strong>Trần Ngọc Mai</strong><small>0903456702</small></td><td>3</td><td><strong>192.000đ</strong></td><td><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td></tr>
+<tr><td>2</td><td><strong>Lê Minh Tâm</strong><small>0938765403</small></td><td>2</td><td><strong>144.000đ</strong></td><td><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td></tr>
+<tr><td>3</td><td><strong>Nguyễn Văn An</strong><small>0912345601</small></td><td>2</td><td><strong>130.000đ</strong></td><td><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td></tr>
+<tr><td>4</td><td><strong>Võ Khánh Linh</strong><small>0988123405</small></td><td>2</td><td><strong>125.000đ</strong></td><td><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td></tr>
+<tr><td>5</td><td><strong>Phạm Gia Hân</strong><small>0917654304</small></td><td>2</td><td><strong>102.000đ</strong></td><td><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td></tr></tbody></table></div>
+</section>
+<section class="admin-section">
+  <div class="admin-section-heading"><div><p class="eyebrow">Mới nhất</p><h2>Các đơn hàng gần đây</h2></div><a class="text-link" href="admin-orders.html">Xem danh sách đơn →</a></div>
+  <div class="table-wrap"><table><thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Nhận món</th><th>Tổng tiền</th><th>Trạng thái</th></tr></thead><tbody><tr><td><strong>KAT-061126-004</strong></td><td>Nguyễn Văn An<small>0912345601</small></td><td>Giao tận nơi</td><td>55.000đ</td><td><span class="status-badge status-completed">Hoàn thành</span></td></tr><tr><td><strong>KAT-061126-003</strong></td><td>Trần Ngọc Mai<small>0903456702</small></td><td>Lấy tại quán</td><td>62.000đ</td><td><span class="status-badge status-preparing">Đang chuẩn bị</span></td></tr><tr><td><strong>KAT-061126-002</strong></td><td>Lê Minh Tâm<small>0938765403</small></td><td>Giao tận nơi</td><td>72.000đ</td><td><span class="status-badge status-pending">Chờ xác nhận</span></td></tr><tr><td><strong>KAT-061126-001</strong></td><td>Phạm Gia Hân<small>0917654304</small></td><td>Giao tận nơi</td><td>52.000đ</td><td><span class="status-badge status-shipping">Đang giao</span></td></tr></tbody></table></div>
+</section>
+
+      </section>
     </div>
   </main>
-  <footer class="site-footer"><div class="footer-inner"><a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a><span>Khu vực quản trị nội bộ.</span><a href="tel:+84901234567">0901 234 567</a><a href="stores.html">Chi nhánh · 8:00–18:00</a></div></footer>
-  <div class="modal-backdrop" id="admin-modal" hidden><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="admin-modal-title" tabindex="-1"><button class="icon-button dialog-close" type="button" data-close-modal aria-label="Đóng">×</button><div id="admin-modal-content"></div></section></div>
+  <footer class="site-footer"><div class="footer-bottom"><div class="page-container"><span>© Kat · Khu vực quản trị.</span><a href="index.html">Về trang bán hàng</a></div></div></footer>
   <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
-  <script src="js/initdata.js"></script><script src="js/toast.js"></script><script src="js/auth.js"></script><script src="js/admin.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/admin.js"></script>
 </body>
 </html>

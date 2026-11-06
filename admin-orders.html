@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Đơn hàng — khu vực quản trị Kat.">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="robots" content="noindex">
+  <title>Đơn hàng · Quản trị Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page">
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="site-header admin-site-header">
+    <div class="header-inner page-container">
+      <a class="brand-lockup" href="admin.html" aria-label="Kat, tổng quan quản trị">
+        <img class="brand-logo" src="images/kat-logo.png" alt="">
+        <span class="admin-wordmark">Quản trị</span>
+      </a>
+      <div class="admin-header-actions"><a class="button button-secondary" href="admin-login.html">Đăng xuất</a></div>
+    </div>
+  </header>
+  <main id="main-content" class="admin-main page-container">
+    <div class="admin-heading"><div><p class="eyebrow">Bếp Kat · Quản trị</p><h1>Đơn hàng</h1></div></div>
+    <div class="admin-layout">
+      <nav class="admin-nav" aria-label="Mục quản trị">
+<a class="admin-nav-link" href="admin.html">Tổng quan</a>
+<a class="admin-nav-link" href="admin-products.html">Món ăn</a>
+<a class="admin-nav-link" href="admin-categories.html">Danh mục</a>
+<a class="admin-nav-link is-active" href="admin-orders.html" aria-current="page">Đơn hàng</a>
+<a class="admin-nav-link" href="admin-combos.html">Combo</a>
+<a class="admin-nav-link" href="admin-vouchers.html">Voucher</a>
+<a class="admin-nav-link" href="admin-reviews.html">Đánh giá</a>
+<a class="admin-nav-link" href="admin-feedback.html">Góp ý</a>
+<a class="admin-nav-link" href="admin-users.html">Tài khoản</a>
+      </nav>
+      <section class="admin-content">
+
+<section class="admin-section">
+  <div class="admin-section-heading"><div><p class="eyebrow">12 đơn hàng</p><h2>Danh sách đơn hàng</h2><p class="helper-text">Chọn các điều kiện để lọc đơn hàng.</p></div></div>
+  <form class="admin-filter-grid admin-order-filter" data-demo-form data-success-message="Đã bấm nút." novalidate>
+  <label>Trạng thái<select name="status"><option>Tất cả trạng thái</option><option>Chờ xác nhận</option><option>Đang chuẩn bị</option><option>Đang giao</option><option>Hoàn thành</option><option>Đã hủy</option></select></label>
+  <label>Từ ngày<input type="date" name="from"></label>
+  <label>Đến ngày<input type="date" name="to"></label>
+  <label>Khu vực<input type="search" name="location" placeholder="Quận, thành phố hoặc địa chỉ"></label>
+  <button class="button button-primary" type="submit">Lọc</button>
+</form>
+  <div class="table-wrap"><table class="admin-order-table"><thead><tr><th>Mã đơn & khách hàng</th><th>Chi tiết món</th><th>Nhận món</th><th>Thanh toán</th><th>Tổng tiền</th><th>Trạng thái</th></tr></thead><tbody><tr><td><strong>KAT-061126-004</strong><small>Nguyễn Văn An · 0912345601</small><small>Quận 5, TP. HCM</small><small>06/11/2026 · 11:20</small></td><td><ul class="order-item-list"><li><span>Mẹt viên chiên nhỏ × 1</span><strong>35.000đ</strong></li><li><span>Trà sữa truyền thống × 1</span><strong>20.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Giao tận nơi</td><td>Tiền mặt</td><td><strong>55.000đ</strong></td><td><span class="status-badge status-completed">Hoàn thành</span></td></tr><tr><td><strong>KAT-061126-003</strong><small>Trần Ngọc Mai · 0903456702</small><small>Cơ sở chính · Quận 5</small><small>06/11/2026 · 11:05</small></td><td><ul class="order-item-list"><li><span>Bánh tráng trộn × 1</span><strong>25.000đ</strong></li><li><span>Gà viên lắc phô mai × 1</span><strong>25.000đ</strong></li><li><span>Coca Cola vị nguyên bản × 1</span><strong>12.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Lấy tại quán</td><td>Chuyển khoản QR</td><td><strong>62.000đ</strong></td><td><span class="status-badge status-preparing">Đang chuẩn bị</span></td></tr><tr><td><strong>KAT-061126-002</strong><small>Lê Minh Tâm · 0938765403</small><small>Quận 3, TP. HCM</small><small>06/11/2026 · 10:48</small></td><td><ul class="order-item-list"><li><span>Combo Bạn Thân × 1</span><strong>72.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Giao tận nơi</td><td>Tiền mặt</td><td><strong>72.000đ</strong></td><td><span class="status-badge status-pending">Chờ xác nhận</span></td></tr><tr><td><strong>KAT-061126-001</strong><small>Phạm Gia Hân · 0917654304</small><small>Quận 3, TP. HCM</small><small>06/11/2026 · 10:32</small></td><td><ul class="order-item-list"><li><span>Gà rán truyền thống × 1</span><strong>30.000đ</strong></li><li><span>Bánh flan cốt dừa × 1</span><strong>12.000đ</strong></li><li><span>Sữa chua phô mai × 1</span><strong>10.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Giao tận nơi</td><td>Chuyển khoản QR</td><td><strong>52.000đ</strong></td><td><span class="status-badge status-shipping">Đang giao</span></td></tr><tr><td><strong>KAT-051126-005</strong><small>Võ Khánh Linh · 0988123405</small><small>Quận 10, TP. HCM</small><small>05/11/2026 · 19:10</small></td><td><ul class="order-item-list"><li><span>Chân gà sả tắc × 1</span><strong>45.000đ</strong></li><li><span>Mẹt viên chiên nhỏ × 1</span><strong>35.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Giao tận nơi</td><td>Tiền mặt</td><td><strong>80.000đ</strong></td><td><span class="status-badge status-completed">Hoàn thành</span></td></tr><tr><td><strong>KAT-051126-004</strong><small>Nguyễn Văn An · 0912345601</small><small>Cơ sở chính · Quận 5</small><small>05/11/2026 · 18:42</small></td><td><ul class="order-item-list"><li><span>Mẹt viên chiên lớn × 1</span><strong>55.000đ</strong></li><li><span>Trà đào cam sả × 1</span><strong>20.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Lấy tại quán</td><td>Chuyển khoản QR</td><td><strong>75.000đ</strong></td><td><span class="status-badge status-preparing">Đang chuẩn bị</span></td></tr><tr><td><strong>KAT-051126-003</strong><small>Trần Ngọc Mai · 0903456702</small><small>Quận 7, TP. HCM</small><small>05/11/2026 · 17:25</small></td><td><ul class="order-item-list"><li><span>Combo Đơn Độc × 1</span><strong>32.000đ</strong></li><li><span>Chè khúc bạch × 1</span><strong>20.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Giao tận nơi</td><td>Tiền mặt</td><td><strong>52.000đ</strong></td><td><span class="status-badge status-completed">Hoàn thành</span></td></tr><tr><td><strong>KAT-051126-002</strong><small>Lê Minh Tâm · 0938765403</small><small>Cơ sở chính · Quận 3</small><small>05/11/2026 · 16:15</small></td><td><ul class="order-item-list"><li><span>Gà rán truyền thống × 1</span><strong>30.000đ</strong></li><li><span>Nem chua rán × 1</span><strong>30.000đ</strong></li><li><span>Coca Cola vị nguyên bản × 1</span><strong>12.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Lấy tại quán</td><td>Chuyển khoản QR</td><td><strong>72.000đ</strong></td><td><span class="status-badge status-preparing">Đang chuẩn bị</span></td></tr><tr><td><strong>KAT-051126-001</strong><small>Phạm Gia Hân · 0917654304</small><small>Quận 3, TP. HCM</small><small>05/11/2026 · 15:34</small></td><td><ul class="order-item-list"><li><span>Combo Điểm Tâm Vặt × 1</span><strong>40.000đ</strong></li><li><span>Sữa chua phô mai × 1</span><strong>10.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Giao tận nơi</td><td>Chuyển khoản QR</td><td><strong>50.000đ</strong></td><td><span class="status-badge status-completed">Hoàn thành</span></td></tr><tr><td><strong>KAT-041126-003</strong><small>Võ Khánh Linh · 0988123405</small><small>Quận 10, TP. HCM</small><small>04/11/2026 · 20:05</small></td><td><ul class="order-item-list"><li><span>Mì trộn tóp mỡ lòng đào × 1</span><strong>25.000đ</strong></li><li><span>Trà đào cam sả × 1</span><strong>20.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Giao tận nơi</td><td>Tiền mặt</td><td><strong>45.000đ</strong></td><td><span class="status-badge status-shipping">Đang giao</span></td></tr><tr><td><strong>KAT-041126-002</strong><small>Nguyễn Văn An · 0912345601</small><small>Quận 5, TP. HCM</small><small>04/11/2026 · 19:30</small></td><td><ul class="order-item-list"><li><span>Phá lấu tai heo kèm bánh mì × 1</span><strong>35.000đ</strong></li><li><span>Bánh tráng trộn × 1</span><strong>25.000đ</strong></li><li><span>Pepsi vị nguyên bản × 1</span><strong>12.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Giao tận nơi</td><td>Chưa thanh toán</td><td><strong>72.000đ</strong></td><td><span class="status-badge status-cancelled">Đã hủy</span></td></tr><tr><td><strong>KAT-041126-001</strong><small>Trần Ngọc Mai · 0903456702</small><small>Quận 5, TP. HCM</small><small>04/11/2026 · 18:12</small></td><td><ul class="order-item-list"><li><span>Combo Ngọt Ngào × 1</span><strong>58.000đ</strong></li><li><span>Trà sữa truyền thống × 1</span><strong>20.000đ</strong></li></ul><button class="text-button report-order-button" type="button" aria-label="Xem đơn hàng" data-demo-action data-message="Đã hiển thị đơn hàng.">Xem đơn hàng</button></td><td>Giao tận nơi</td><td>Tiền mặt</td><td><strong>78.000đ</strong></td><td><span class="status-badge status-completed">Hoàn thành</span></td></tr></tbody></table></div>
+</section>
+
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="footer-bottom"><div class="page-container"><span>© Kat · Khu vực quản trị.</span><a href="index.html">Về trang bán hàng</a></div></div></footer>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <script src="js/toast.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
