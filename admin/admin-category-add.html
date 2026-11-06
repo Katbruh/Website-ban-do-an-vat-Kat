@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Thêm danh mục món ăn vào thực đơn Kat."><meta name="robots" content="noindex">
+  <title>Thêm danh mục · Quản trị Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page">
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="site-header admin-site-header"><div class="header-inner page-container"><a class="brand-lockup" href="admin.html" aria-label="Kat, tổng quan quản trị"><img class="brand-logo" src="../images/kat-logo.png" alt=""><span class="admin-wordmark">Quản trị</span></a><div class="admin-header-actions"><span class="auth-slot"><a class="icon-tool account-login-link" href="admin-login.html" aria-label="Tài khoản" title="Tài khoản"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
+  <main id="main-content" class="admin-main page-container">
+    <div class="admin-heading"><div><p class="eyebrow">Danh mục · Tạo mới</p><h1>Thêm danh mục</h1></div><a class="button button-secondary" href="admin-categories.html">← Danh sách danh mục</a></div>
+    <div class="admin-layout">
+      <nav class="admin-nav" aria-label="Mục quản trị"><a class="admin-nav-link" href="admin.html">Tổng quan</a>
+<a class="admin-nav-link" href="admin-orders.html">Đơn hàng</a><a class="admin-nav-link" href="admin-products.html">Món ăn</a><a class="admin-nav-link is-active" href="admin-categories.html" aria-current="page">Danh mục</a><a class="admin-nav-link" href="admin-combos.html">Combo</a><a class="admin-nav-link" href="admin-vouchers.html">Voucher</a><a class="admin-nav-link" href="admin-reviews.html">Đánh giá</a><a class="admin-nav-link" href="admin-feedback.html">Góp ý</a><a class="admin-nav-link" href="admin-users.html">Tài khoản</a></nav>
+      <section class="admin-content"><form class="admin-section admin-category-form" data-category-form>
+        <p class="eyebrow">Thông tin danh mục</p><h2>Danh mục mới</h2><p class="helper-text">Đặt tên và mô tả ngắn để nhóm món ăn trong thực đơn.</p>
+        <label>Tên danh mục<input name="name" type="text" maxlength="60" placeholder="Ví dụ: Món ăn vặt" required></label>
+        <label>Mô tả<textarea name="description" rows="4" maxlength="180" placeholder="Mô tả các món thuộc danh mục này"></textarea></label>
+        <div class="dialog-actions"><a class="button button-secondary" href="admin-categories.html">Hủy</a><button class="button button-primary" type="submit">Thêm danh mục</button></div>
+      </form></section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="footer-bottom"><div class="page-container"><span>© Kat · Khu vực quản trị.</span><a href="../index.html">Về trang bán hàng</a></div></div></footer>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div><script src="../js/toast.js"></script><script src="js/admin.js"></script><script src="js/admin-category-add.js"></script><script src="../js/account.js"></script>
+</body>
+</html>

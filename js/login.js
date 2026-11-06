@@ -1,4 +1,10 @@
 (function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("reset") === "success") {
+    if (typeof window.showToast === "function") window.showToast("Đổi mật khẩu thành công.", "success");
+    window.history.replaceState({}, "", window.location.pathname);
+  }
+
   const tabs = Array.from(document.querySelectorAll("[data-auth-tab]"));
   const loginForm = document.getElementById("login-form");
   const registerForm = document.getElementById("register-form");
@@ -32,9 +38,10 @@
     const values = new FormData(loginForm);
     if (window.KatAccount) window.KatAccount.setSession({
       role: "customer",
-      fullName: "Khách hàng",
-      phone: String(values.get("phone") || "").trim(),
-      email: ""
+      fullName: "Nguyễn Thị Lan Anh",
+      phone: String(values.get("phone") || "0908 345 612").trim(),
+      email: "lananh@example.com",
+      gender: "female"
     });
     window.location.href = "index.html";
   });

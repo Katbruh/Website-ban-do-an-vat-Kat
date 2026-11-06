@@ -5,7 +5,15 @@
   function readSession() {
     try {
       const value = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "null");
-      return value && (value.role === "admin" || value.role === "customer") ? value : null;
+      if (!value || (value.role !== "admin" && value.role !== "customer")) return null;
+      if (value.role === "customer" && (!value.fullName || value.fullName === "Khách hàng")) {
+        value.fullName = "Nguyễn Thị Lan Anh";
+        value.phone = "0908 345 612";
+        value.email = "lananh@example.com";
+        value.gender = "female";
+        try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(value)); } catch (error) {}
+      }
+      return value;
     } catch (error) { return null; }
   }
   function writeSession(session) {
@@ -14,6 +22,12 @@
   }
   function clearSession() {
     try { window.localStorage.removeItem(STORAGE_KEY); } catch (error) {}
+  }
+  function isAdminArea() {
+    return /(?:^|\/)admin\//i.test(window.location.pathname.replace(/\\/g, "/"));
+  }
+  function isAdminLoginPage() {
+    return /\/admin\/admin-login\.html$/i.test(window.location.pathname.replace(/\\/g, "/"));
   }
   window.KatAccount = { getSession: readSession, setSession: writeSession, clearSession: clearSession };
 
@@ -31,7 +45,7 @@
     trigger.setAttribute("aria-expanded", "false");
     trigger.setAttribute("aria-controls", "account-menu-" + (++menuIndex));
     trigger.dataset.accountTrigger = "";
-    trigger.innerHTML = icon + '<span class="account-chevron" aria-hidden="true">⌄</span>';
+    trigger.innerHTML = icon;
 
     const menu = document.createElement("div");
     menu.className = "account-menu";
@@ -50,7 +64,7 @@
 
     const settings = document.createElement("a");
     settings.className = "account-menu-link";
-    settings.href = "account-settings.html";
+    settings.href = document.body.classList.contains("admin-page") ? "../account-settings.html" : "account-settings.html";
     settings.setAttribute("role", "menuitem");
     settings.textContent = "Cài đặt tài khoản";
 
@@ -95,15 +109,31 @@
     });
   }
 
+  function renderAccountArea() {
+    const area = document.querySelector("[data-account-area-content]");
+    const loginNotice = document.querySelector("[data-account-login-notice]");
+    const session = readSession();
+    const isAdmin = session && session.role === "admin";
+    if (area) area.hidden = !session;
+    if (loginNotice) loginNotice.hidden = Boolean(session);
+
+    document.querySelectorAll("[data-customer-account-link]").forEach(function (link) {
+      link.hidden = Boolean(isAdmin);
+    });
+    document.querySelectorAll("[data-customer-only-content]").forEach(function (content) {
+      content.hidden = Boolean(isAdmin);
+    });
+    document.querySelectorAll("[data-admin-account-note]").forEach(function (note) {
+      note.hidden = !isAdmin;
+    });
+  }
+
   function renderSettings() {
     const form = document.querySelector("[data-account-settings-form]");
     if (!form) return;
     const session = readSession();
-    const empty = document.querySelector("[data-account-settings-empty]");
     const title = document.querySelector("[data-account-settings-title]");
     const roleLabel = document.querySelector("[data-account-role]");
-    if (empty) empty.hidden = Boolean(session);
-    form.hidden = !session;
     if (!session) return;
 
     const isAdmin = session.role === "admin";
@@ -112,6 +142,10 @@
     form.elements.fullName.value = session.fullName || "";
     form.elements.phone.value = session.phone || "";
     form.elements.email.value = session.email || "";
+    if (form.elements.gender) form.elements.gender.value = session.gender || "";
+    if (form.elements.birthDay) form.elements.birthDay.value = session.birthDay || "";
+    if (form.elements.birthMonth) form.elements.birthMonth.value = session.birthMonth || "";
+    if (form.elements.birthYear) form.elements.birthYear.value = session.birthYear || "";
   }
 
   document.addEventListener("click", function (event) {
@@ -162,6 +196,10 @@
     session.fullName = String(form.elements.fullName.value || "").trim();
     session.phone = String(form.elements.phone.value || "").trim();
     session.email = String(form.elements.email.value || "").trim();
+    session.gender = String(form.elements.gender ? form.elements.gender.value : "");
+    session.birthDay = String(form.elements.birthDay ? form.elements.birthDay.value : "");
+    session.birthMonth = String(form.elements.birthMonth ? form.elements.birthMonth.value : "");
+    session.birthYear = String(form.elements.birthYear ? form.elements.birthYear.value : "");
     if (!writeSession(session)) {
       if (typeof window.showToast === "function") window.showToast("Không thể lưu cài đặt tài khoản trên trình duyệt này.", "error");
       return;
@@ -181,6 +219,21 @@
     prompt.hidden = signedIn;
   }
 
+  function enforceAdminAccess() {
+    if (!isAdminArea()) return;
+    let session = readSession();
+    if (session && session.role === "customer") {
+      clearSession();
+      session = null;
+    }
+    if (!isAdminLoginPage() && (!session || session.role !== "admin")) {
+      window.location.replace("admin-login.html");
+    }
+  }
+
+  enforceAdminAccess();
   renderControls();
+  renderAccountArea();
   renderSettings();
+  renderReviewGate();
 })();

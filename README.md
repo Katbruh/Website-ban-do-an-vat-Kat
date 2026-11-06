@@ -24,10 +24,10 @@ Sau đó truy cập `http://localhost:8000`.
 | `order-success.html` | Trang xác nhận đơn hàng |
 | `orders.html` | Tra cứu và ba đơn hàng tĩnh |
 | `stores.html`, `feedback.html` | Thông tin cửa hàng và form góp ý |
-| `login.html`, `admin-login.html` | Form đăng nhập và đăng ký minh họa |
-| `admin.html`, `admin-*.html` | Dashboard và các trang quản trị riêng |
+| `login.html`, `admin/admin-login.html` | Form đăng nhập và đăng ký minh họa |
+| `admin/` | Dashboard, trang đăng nhập và các trang quản trị riêng |
 
-`css/style.css` chứa giao diện khách hàng; `css/admin.css` chứa giao diện quản trị. Thư mục `images/` lưu logo và ảnh món ăn, còn `js/` xử lý tương tác đơn giản như chuyển tab, thông báo, carousel thủ công và điều hướng giữa các trang.
+`css/style.css` chứa giao diện khách hàng; `admin/` gom các trang, stylesheet và script riêng của quản trị. Thư mục `images/` lưu logo và ảnh món ăn, còn `js/` xử lý tương tác đơn giản như chuyển tab, thông báo, carousel thủ công và điều hướng giữa các trang.
 
 ## Giới hạn hiện tại
 

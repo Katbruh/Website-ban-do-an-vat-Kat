@@ -143,7 +143,7 @@ img { max-width: 100%; }
 .toast-region { position: fixed; z-index: 50; inset-block-end: 24px; inset-inline-end: 24px; display: grid; gap: 8px; width: min(calc(100% - 32px), 384px); pointer-events: none; }
 .toast { padding: 16px; border: 1px solid #e5e5e5; border-radius: 16px; background: #ffffff; color: #252525; box-shadow: 0px 0px 0px 1px rgb(39 35 33 / 0.1), 0px 1px 2px 0px rgb(39 35 33 / 0.107), 0px 4px 12px 0px rgb(39 35 33 / 0.091); }
 .toast-success { border-inline-start: 4px solid #28994e; }
-.toast-error { border-inline-start: 4px solid #d2665c; }
+.toast-error { border-inline-start: 4px solid #a22a26; }
 .toast-info { border-inline-start: 4px solid #008ed1; }
 .confirm-dialog { width: min(100%, 480px); }
 .confirm-dialog h2 { margin: 0 0 8px; font: 650 1.5625rem/1.44 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
@@ -265,14 +265,12 @@ img { max-width: 100%; }
 .icon-tool:hover, .icon-tool.is-current, .icon-tool[aria-expanded="true"] { color: #8c2224; background: #fee6e4; }
 .site-header .header-tools .icon-tool { color: #ffffff; }
 .site-header .header-tools .icon-tool:hover, .site-header .header-tools .icon-tool.is-current, .site-header .header-tools .icon-tool[aria-expanded="true"] { background: #ffffff; color: #8c2224; }
-.cart-tool .cart-count { position: absolute; inset-block-start: 0; inset-inline-end: 0; min-width: 16px; height: 16px; padding-inline: 4px; border: 2px solid #ffffff; font-size: 0.8125rem; }
+.cart-tool .cart-count { position: absolute; inset-block-start: 0; inset-inline-end: 0; width: 18px; min-width: 18px; height: 18px; display: grid; place-items: center; padding: 0; border: 2px solid #ffffff; font-size: 0.6875rem; font-weight: 600; line-height: 1; text-align: center; }
 .site-header .cart-tool .cart-count { background: #ffffff; color: #8c2224; }
 .auth-slot { display: inline-flex; align-items: center; gap: 8px; }
 .account-control { position: relative; }
 .account-trigger { color: #666666; }
-.site-header .account-chevron { color: #ffffff; }
 .account-menu-heading small { color: #666666; font: 400 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-.account-chevron { color: #666666; }
 .account-menu { position: absolute; inset-block-start: calc(100% + 8px); inset-inline-end: 0; z-index: 30; width: max-content; min-width: 15rem; overflow: hidden; padding: 8px; border: 1px solid #e5e5e5; border-radius: 24px; background: #ffffff; box-shadow: 0px 0px 0px 1px rgb(39 35 33 / 0.1), 0px 1px 2px 0px rgb(39 35 33 / 0.107), 0px 4px 12px 0px rgb(39 35 33 / 0.091); }
 .account-menu-heading { display: grid; gap: 4px; padding: 12px; border-bottom: 1px solid #e5e5e5; }
 .account-menu-heading strong { overflow-wrap: anywhere; font: 500 1rem/1.5 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
@@ -665,35 +663,7 @@ img { max-width: 100%; }
   .status-preparing { color: color(display-p3 0 0.3555 0.5816); }
 }
 
-/* Static catalogue, shared search, and standalone detail pages. */
-.header-search-form {
-  display: flex;
-  flex: 0 0 auto;
-  width: clamp(8.75rem, 14vw, 12rem);
-  align-items: center;
-  gap: 4px;
-}
-.header-search-form input {
-  width: 100%;
-  min-width: 0;
-  min-height: 40px;
-  padding: 6px 10px;
-  border: 1px solid #e5e5e5;
-  border-radius: 9999px;
-  background: #ffffff;
-  color: #252525;
-}
-.header-search-form button {
-  flex: 0 0 40px;
-  min-height: 40px;
-  padding: 0;
-  border: 0;
-  border-radius: 9999px;
-  background: #fee6e4;
-  color: #8c2224;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+/* Static catalogue and standalone detail pages. */
 .menu-category-button {
   flex: 0 0 auto;
   min-height: 44px;
@@ -839,17 +809,7 @@ img { max-width: 100%; }
   }
 }
 @media (max-width: 42rem) {
-  .header-search-form {
-    width: 6rem;
-  }
-  .header-search-form input {
-    padding-inline: 8px;
-  }
-  .header-search-form button {
-    flex-basis: 36px;
-    min-height: 36px;
-  }
-  .menu-filters,
+.menu-filters,
   .product-detail-static {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -930,4 +890,85 @@ img { max-width: 100%; }
 .admin-site-header .account-trigger[aria-expanded="true"] {
   background: #ffffff;
   color: #8c2224;
+}
+/* Shared account sections */
+.account-main { min-height: 62vh; padding-block: 48px 72px; }
+.account-area-content[hidden], .account-login-notice[hidden] { display: none; }
+.account-login-notice { width: min(100%, 640px); min-height: 420px; margin: auto; padding: 48px 24px; text-align: center; }
+.account-login-notice h1 { margin-top: 0; }
+.account-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; align-items: start; gap: 48px; }
+.account-main-column { min-width: 0; width: min(100%, 760px); margin-inline: auto; }
+.account-page-heading { margin-bottom: 24px; }
+.account-page-heading h1 { margin: 0; font: 650 1.9375rem/1.3 "Be Vietnam Pro", system-ui, sans-serif; }
+.account-profile-card, .account-content-card { padding: 24px; border: 1px solid #e5e5e5; border-radius: 24px; background: #ffffff; box-shadow: 0 1px 3px rgb(39 35 33 / 0.08); }
+.account-profile-card h2, .account-address-book-heading h2 { margin: 0; font-size: 1.25rem; }
+.account-profile-form { margin-top: 20px; }
+.account-profile-form > label { display: grid; gap: 8px; }
+.account-profile-form input, .account-profile-form select, .account-address-search input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid #d8d2ce;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #252525;
+}
+.account-birthday { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; border: 0; }
+.account-birthday legend { grid-column: 1 / -1; margin-bottom: 4px; font-weight: 500; }
+.account-address-field { display: grid; gap: 8px; }
+.account-link-row { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid #e5e5e5; color: #252525; text-decoration: none; }
+.account-link-row:hover { color: #8c2224; }
+.account-sidebar { position: sticky; top: 88px; border: 1px solid #e5e5e5; border-radius: 16px; background: #ffffff; overflow: hidden; }
+.account-sidebar-nav { display: grid; }
+.account-sidebar-nav a, .account-sidebar-nav button { min-height: 56px; display: flex; align-items: center; padding: 12px 16px; border: 0; border-bottom: 1px solid #e5e5e5; background: #ffffff; color: #252525; font: inherit; text-align: left; text-decoration: none; cursor: pointer; }
+.account-sidebar-nav a:last-child, .account-sidebar-nav button:last-child { border-bottom: 0; }
+.account-sidebar-nav a:hover, .account-sidebar-nav button:hover, .account-sidebar-nav .is-active { background: #efebe8; color: #8c2224; }
+.account-sidebar-nav [hidden] { display: none; }
+.account-content-card { min-height: 340px; }
+.account-empty-state { min-height: 300px; display: grid; justify-items: center; align-content: center; gap: 12px; color: #666666; text-align: center; }
+.account-empty-state svg { width: 112px; height: 112px; }
+.account-empty-state p { margin: 0; }
+.account-empty-state .button { margin-top: 8px; }
+.account-address-search { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.account-address-search button { min-width: 52px; }
+.account-address-book-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 32px; }
+.account-address-book-heading .helper-text { margin: 6px 0 0; }
+.account-address-empty { min-height: 240px; }
+.account-address-list { display: grid; gap: 12px; margin-top: 20px; }
+.account-address-card { display: grid; gap: 10px; padding: 16px; border: 1px solid #e5e5e5; border-radius: 16px; background: #ffffff; }
+.account-address-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.account-address-card address { color: #252525; font-style: normal; line-height: 1.6; }
+.account-address-card p { margin: 0; color: #666666; }
+.account-address-card p strong { color: #252525; }
+.account-address-actions { display: flex; gap: 16px; padding-top: 8px; border-top: 1px solid #e5e5e5; }
+.auth-forgot-link { justify-self: end; margin-top: -8px; color: #8c2224; font-size: 0.8125rem; text-decoration: none; }
+.auth-forgot-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.checkout-address-field { display: grid; gap: 8px; }
+.checkout-address-field select, .checkout-address-field input { width: 100%; min-height: 48px; padding: 10px 14px; border: 1px solid #d8d2ce; border-radius: 12px; background: #ffffff; color: #252525; }
+.checkout-form [hidden] { display: none !important; }
+.checkout-form input:disabled, .checkout-form select:disabled { background: #f5f5f5; color: #666666; cursor: not-allowed; opacity: 1; }
+.checkout-form label.is-disabled { color: #888888; }
+.cart-heading { align-items: center; }
+.cart-heading-copy { display: grid; gap: 8px; }
+.cart-heading-copy .eyebrow { margin-bottom: 0; }
+.cart-heading-description { margin: 0; text-align: end; }
+.cart-items-panel > .text-link { display: flex; justify-content: center; margin-top: 24px; }
+.account-admin-note { padding: 20px; border-radius: 16px; background: #f5f5f5; color: #666666; }
+.footer-main small { color: #e0e0e0; }
+@media (max-width: 760px) {
+  .account-main { padding-block: 28px 48px; }
+  .account-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .account-sidebar { position: static; order: -1; }
+  .account-sidebar-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .account-sidebar-nav a, .account-sidebar-nav button { border-right: 1px solid #e5e5e5; }
+  .account-profile-card, .account-content-card { padding: 16px; }
+}
+@media (max-width: 480px) {
+  .account-sidebar-nav { grid-template-columns: minmax(0, 1fr); }
+  .account-birthday { gap: 8px; }
+  .account-address-book-heading { align-items: stretch; flex-direction: column; }
+}
+@media (max-width: 760px) {
+  .cart-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .cart-heading-description { text-align: start; }
 }

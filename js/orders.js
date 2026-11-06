@@ -4,7 +4,7 @@
   if (!form || !history) return;
 
   const phoneInput = form.elements.namedItem("phone");
-  const samplePhone = "0903456702";
+  const samplePhone = "0908345612";
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();

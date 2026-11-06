@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chi tiết một đơn hàng của khách hàng Kat.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>Chi tiết đơn hàng · Quản trị Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page">
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="site-header admin-site-header">
+    <div class="header-inner page-container">
+      <a class="brand-lockup" href="admin.html" aria-label="Kat, tổng quan quản trị"><img class="brand-logo" src="../images/kat-logo.png" alt=""><span class="admin-wordmark">Quản trị</span></a>
+      <div class="admin-header-actions"><span class="auth-slot"><a class="icon-tool account-login-link" href="admin-login.html" aria-label="Tài khoản" title="Tài khoản"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div>
+    </div>
+  </header>
+  <main id="main-content" class="admin-main page-container">
+    <div class="admin-heading"><div><p class="eyebrow">Đơn hàng · Chi tiết</p><h1>Chi tiết đơn hàng</h1></div><a class="button button-secondary" href="admin-orders.html">← Danh sách đơn hàng</a></div>
+    <div class="admin-layout">
+      <nav class="admin-nav" aria-label="Mục quản trị">
+        <a class="admin-nav-link" href="admin.html">Tổng quan</a>
+        <a class="admin-nav-link is-active" href="admin-orders.html" aria-current="page">Đơn hàng</a>
+        <a class="admin-nav-link" href="admin-products.html">Món ăn</a>
+        <a class="admin-nav-link" href="admin-categories.html">Danh mục</a>
+        <a class="admin-nav-link" href="admin-combos.html">Combo</a>
+        <a class="admin-nav-link" href="admin-vouchers.html">Voucher</a>
+        <a class="admin-nav-link" href="admin-reviews.html">Đánh giá</a>
+        <a class="admin-nav-link" href="admin-feedback.html">Góp ý</a>
+        <a class="admin-nav-link" href="admin-users.html">Tài khoản</a>
+      </nav>
+      <section class="admin-content">
+        <section class="admin-section order-detail-summary" aria-labelledby="order-detail-id">
+          <header class="order-detail-heading">
+            <div><p class="eyebrow" data-order-date></p><h2 id="order-detail-id" data-order-id></h2><p class="helper-text" data-order-customer></p></div>
+            <div class="order-detail-status-control"><label for="order-status-select">Trạng thái<select id="order-status-select" class="status-select" data-order-status></select></label><button class="button button-primary" type="button" data-order-status-save>Lưu trạng thái</button></div>
+          </header>
+          <div class="order-detail-meta">
+            <div><span>Người nhận</span><strong data-order-recipient></strong></div>
+            <div><span>Số điện thoại</span><strong data-order-phone></strong></div>
+            <div><span>Hình thức nhận</span><strong data-order-receive></strong></div>
+            <div><span>Địa chỉ / chi nhánh</span><strong data-order-address></strong></div>
+            <div><span>Thanh toán</span><strong data-order-payment></strong></div>
+          </div>
+        </section>
+        <div class="order-detail-columns">
+          <section class="admin-section order-items-panel" aria-label="Chi tiết món ăn">
+            <h2>Chi tiết món ăn</h2>
+            <div class="table-wrap"><table class="order-detail-items"><thead><tr><th>Món</th><th>Số lượng</th><th>Thành tiền</th></tr></thead><tbody data-order-items></tbody></table></div>
+          </section>
+          <section class="admin-section order-total-panel" aria-label="Tổng thanh toán">
+            <h2>Tổng thanh toán</h2>
+            <div class="order-detail-totals"><div><span>Tạm tính</span><strong data-order-subtotal></strong></div><div><span>Phí giao hàng</span><strong data-order-delivery></strong></div><div class="order-detail-total"><span>Tổng cộng</span><strong data-order-total></strong></div></div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="footer-bottom"><div class="page-container"><span>© Kat · Khu vực quản trị.</span><a href="../index.html">Về trang bán hàng</a></div></div></footer>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <script src="../js/toast.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/order-detail.js"></script>
+  <script src="../js/account.js"></script>
+</body>
+</html>
