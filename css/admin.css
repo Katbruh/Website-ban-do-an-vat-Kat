@@ -76,11 +76,6 @@ td small { display: block; margin-top: 4px; color: #666666; }
 .admin-filter-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-block: 16px; }
 .admin-filter-grid label { display: grid; align-content: start; gap: 4px; color: #666666; font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
 .admin-filter-grid input, .admin-filter-grid select { width: 100%; min-width: 0; min-height: 48px; padding-inline: 12px; border: 1px solid #8d857f; border-radius: 16px; background: #ffffff; color: #252525; }
-.report-order-details { min-width: 10rem; }
-.report-order-details summary { min-height: 44px; display: inline-flex; align-items: center; color: #8c2224; cursor: pointer; }
-.report-order-details ul { display: grid; gap: 8px; min-width: min(30rem, 65vw); padding-inline-start: 16px; }
-.report-order-details li { display: flex; justify-content: space-between; gap: 12px; }
-.report-order-details li span:last-child { white-space: nowrap; }
 .admin-content .table-actions { flex-wrap: wrap; }
 .admin-content button:disabled { cursor: not-allowed; opacity: 0.6; }
 
@@ -95,8 +90,6 @@ td small { display: block; margin-top: 4px; color: #666666; }
   .stats-grid { grid-template-columns: minmax(0, 1fr); }
   .category-admin-grid, .voucher-admin-grid, .form-columns { grid-template-columns: minmax(0, 1fr); }
   .admin-filter-grid { grid-template-columns: minmax(0, 1fr); }
-  .report-order-details ul { min-width: 0; }
-  .report-order-details li { flex-direction: column; }
   .admin-section { padding: 16px; }
   .admin-heading { align-items: start; flex-direction: column; }
 }
@@ -104,11 +97,182 @@ td small { display: block; margin-top: 4px; color: #666666; }
 @media (pointer: fine) {
   .text-button,
   .checkbox-field,
-  .report-order-details summary { min-height: 24px; }
 }
 
 @media (color-gamut: p3) {
   .status-pending { color: color(display-p3 0.5101 0.3654 0); }
 
   .status-preparing { color: color(display-p3 0 0.3555 0.5816); }
+}
+
+.admin-site-header .header-inner { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.admin-header-actions { grid-column: 3; justify-self: end; }
+.admin-main { padding-block: 40px 80px; }
+.admin-heading { gap: 16px; margin-bottom: 24px; }
+.admin-nav-link { display: flex; align-items: center; text-decoration: none; }
+.admin-add-form > summary { display: inline-flex; align-items: center; list-style: none; cursor: pointer; }
+.admin-add-form > summary::-webkit-details-marker { display: none; }
+.admin-variant-prices { margin-top: 4px; }
+.admin-variant-prices summary { color: #8c2224; cursor: pointer; font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.admin-variant-prices ul { display: grid; gap: 4px; min-width: 240px; margin: 8px 0 0; padding: 0; list-style: none; }
+.admin-variant-prices li { display: flex; justify-content: space-between; gap: 12px; }
+.admin-category-products { display: grid; gap: 4px; margin: 16px 0; padding-inline-start: 20px; color: #666666; }
+.admin-order-filter { align-items: end; }
+.admin-pagination { flex-wrap: wrap; }
+.admin-pagination button[aria-current="page"] { cursor: default; }
+@media (max-width: 42rem) {
+  .admin-main { padding-block: 24px 48px; }
+  .admin-header-actions { grid-column: 2 / 4; }
+  .admin-variant-prices ul { min-width: 200px; }
+}
+
+/* Keep admin lists aligned and easy to scan. */
+.admin-section-heading {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.admin-section-heading > div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.admin-section-heading .eyebrow,
+.admin-section-heading .helper-text {
+  margin: 0;
+}
+.admin-section-heading .helper-text {
+  max-width: 70ch;
+}
+.table-wrap {
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+}
+.table-wrap table {
+  min-width: 720px;
+}
+.table-wrap th {
+  text-align: start;
+}
+.table-wrap tbody tr:last-child td {
+  border-bottom: 0;
+}
+.table-wrap tbody tr:hover {
+  background: #faf8f6;
+}
+.table-actions {
+  align-content: flex-start;
+  justify-content: flex-start;
+  gap: 4px 8px;
+}
+.category-admin-card,
+.voucher-admin-card {
+  display: flex;
+  flex-direction: column;
+}
+.category-admin-card .table-actions,
+.voucher-admin-card .table-actions {
+  margin-top: auto;
+  padding-top: 12px;
+}
+.admin-category-products {
+  gap: 8px;
+  line-height: 1.5;
+}
+.review-admin-card {
+  display: grid;
+  gap: 12px;
+}
+.review-admin-card > p {
+  margin: 0;
+}
+.review-admin-card .table-actions {
+  justify-content: flex-end;
+}
+.report-order-button {
+  white-space: nowrap;
+}
+@media (max-width: 42rem) {
+  .admin-section-heading {
+    align-items: flex-start;
+  }
+  .table-wrap table {
+    min-width: 680px;
+  }
+}
+.admin-page-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+.report-date-filter {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.report-date-filter > .button,
+.admin-order-filter > .button {
+  width: 100%;
+  min-height: 48px;
+}
+.admin-order-filter {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.admin-products-table {
+  min-width: 1024px;
+}
+.admin-products-table td:first-child {
+  min-width: 220px;
+}
+.admin-products-table td:last-child {
+  min-width: 210px;
+}
+.admin-products-table .table-actions,
+.admin-users-table .table-actions {
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.admin-users-table {
+  min-width: 960px;
+}
+.admin-users-table td:last-child {
+  min-width: 180px;
+}
+.admin-order-table {
+  min-width: 1024px;
+}
+.admin-order-table td:nth-child(2) {
+  min-width: 250px;
+}
+.order-item-list {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+.order-item-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.order-item-list li span {
+  min-width: 0;
+}
+.order-item-list li strong {
+  white-space: nowrap;
+}
+@media (max-width: 42rem) {
+  .report-date-filter,
+  .admin-order-filter {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .admin-page-actions {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}.report-date-filter > .button {
+  align-self: end;
+}
+.admin-section-heading > .button,
+.admin-section-heading > .admin-page-actions {
+  align-self: center;
 }
