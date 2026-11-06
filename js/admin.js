@@ -1,5 +1,4 @@
 (function () {
-  if (!requireAdmin()) return;
   const content = document.getElementById("admin-content");
   const modal = document.getElementById("admin-modal");
   const modalContent = document.getElementById("admin-modal-content");
