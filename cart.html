@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="opendesigner/build/css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Tinh chỉnh lại giao diện giỏ hàng cho sang trọng và gọn gàng */
     .cart-container-box {
       max-width: 800px;
       margin: 0 auto;
@@ -150,7 +149,7 @@
             <div class="cart-item-price">25.000đ</div>
           </div>
 
-          <!-- Nhóm nút điều khiển số lượng và xóa -->
+          <!-- Các nút tăng/giảm số lượng và xóa (Tĩnh) -->
           <div class="cart-actions-group">
             <div class="cart-qty-control">
               <button type="button" class="cart-qty-btn" id="btn-minus">-</button>
@@ -167,9 +166,9 @@
           <span style="color: #C0392B;">25.000đ</span>
         </div>
 
-        <!-- Nút đặt hàng -->
+        <!-- Nút tiến hành đặt hàng liên kết sang checkout.html -->
         <div>
-          <button type="button" class="button button-primary button-wide" id="btn-checkout" style="cursor: pointer; padding: 12px; font-size: 16px;">Tiến hành đặt hàng</button>
+          <a href="checkout.html" class="button button-primary button-wide" style="display: block; text-align: center; text-decoration: none; cursor: pointer; padding: 12px; font-size: 16px;">Tiến hành đặt hàng</a>
         </div>
       </div>
     </section>
@@ -181,13 +180,12 @@
   <script src="js/toast.js"></script>
   <script src="js/auth.js"></script>
 
-  <!-- Chặn hành động và hiện thông báo tĩnh -->
+  <!-- Chặn hành động thay đổi số lượng hoặc xóa, chỉ hiển thị thông báo -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const btnMinus = document.getElementById("btn-minus");
       const btnPlus = document.getElementById("btn-plus");
       const btnRemove = document.getElementById("btn-remove");
-      const checkoutBtn = document.getElementById("btn-checkout");
 
       function stopAction(e) {
         if (e) {
@@ -202,7 +200,6 @@
       if (btnMinus) btnMinus.addEventListener("click", stopAction, true);
       if (btnPlus) btnPlus.addEventListener("click", stopAction, true);
       if (btnRemove) btnRemove.addEventListener("click", stopAction, true);
-      if (checkoutBtn) checkoutBtn.addEventListener("click", stopAction, true);
     });
   </script>
 </body>
