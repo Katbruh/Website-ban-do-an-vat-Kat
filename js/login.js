@@ -1,56 +1,47 @@
 (function () {
-    const loginForm = document.getElementById("login-form");
-    const registerForm = document.getElementById("register-form");
-    const tabs = Array.from(document.querySelectorAll("[data-auth-tab]"));
+  const tabs = Array.from(document.querySelectorAll("[data-auth-tab]"));
+  const loginForm = document.getElementById("login-form");
+  const registerForm = document.getElementById("register-form");
+  if (!loginForm || !registerForm) return;
 
-    function setTab(tab) {
-        const isLogin = tab === "login";
-        if (loginForm) loginForm.hidden = !isLogin;
-        if (registerForm) registerForm.hidden = isLogin;
-        tabs.forEach(function (button) {
-            const active = button.dataset.authTab === tab;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-selected", String(active));
-            button.tabIndex = active ? 0 : -1;
-        });
-        const authTitle = document.getElementById("auth-title");
-        if (authTitle) {
-            authTitle.textContent = isLogin ? "Tài khoản Kat" : "Tạo tài khoản Kat";
-        }
-    }
-
-    tabs.forEach(function (button, index) {
-        button.addEventListener("click", function () { setTab(button.dataset.authTab); });
-        button.addEventListener("keydown", function (event) {
-            if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-            event.preventDefault();
-            const nextIndex = event.key === "ArrowRight" ? (index + 1) % tabs.length : (index + tabs.length - 1) % tabs.length;
-            tabs[nextIndex].focus();
-            setTab(tabs[nextIndex].dataset.authTab);
-        });
+  function setTab(name) {
+    const isLogin = name === "login";
+    loginForm.hidden = !isLogin;
+    registerForm.hidden = isLogin;
+    tabs.forEach(function (tab) {
+      const selected = tab.dataset.authTab === name;
+      tab.classList.toggle("is-active", selected);
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
     });
+  }
 
-    if (loginForm) {
-        loginForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            if (typeof showToast === "function") {
-                showToast("Đăng nhập thành công.", "success");
-            }
-            window.setTimeout(function () {
-                location.href = "index.html?demo-login=1";
-            }, 250);
-        });
-    }
+  tabs.forEach(function (tab, index) {
+    tab.addEventListener("click", function () { setTab(tab.dataset.authTab); });
+    tab.addEventListener("keydown", function (event) {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      const nextIndex = event.key === "ArrowRight" ? (index + 1) % tabs.length : (index + tabs.length - 1) % tabs.length;
+      tabs[nextIndex].focus();
+      setTab(tabs[nextIndex].dataset.authTab);
+    });
+  });
 
-    if (registerForm) {
-        registerForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            if (typeof showToast === "function") {
-                showToast("Đăng ký thành công", "success");
-            } else {
-                alert("Đăng ký thành công");
-            }
-            setTab("login");
-        });
-    }
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const values = new FormData(loginForm);
+    if (window.KatAccount) window.KatAccount.setSession({
+      role: "customer",
+      fullName: "Khách hàng",
+      phone: String(values.get("phone") || "").trim(),
+      email: ""
+    });
+    window.location.href = "index.html";
+  });
+
+  registerForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (typeof window.showToast === "function") window.showToast("Đăng ký thành công.", "success");
+    setTab("login");
+  });
 })();

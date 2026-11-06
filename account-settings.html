@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cài đặt thông tin tài khoản Kat.">
+  <title>Cài đặt tài khoản — Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="inner-page account-settings-page">
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="site-header"><div class="header-inner page-container">
+    <a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a>
+    <nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav>
+    <div class="header-tools"><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng">🛒</a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div>
+  </div></header>
+  <main id="main-content" class="auth-main page-container">
+    <section class="auth-card account-settings-card" aria-labelledby="account-settings-title">
+      <div class="auth-heading"><p class="eyebrow" data-account-role>Tài khoản khách hàng</p><h1 id="account-settings-title" data-account-settings-title>Cài đặt tài khoản</h1><p>Cập nhật thông tin liên hệ của bạn.</p></div>
+      <form class="form-stack" data-account-settings-form novalidate hidden>
+        <label>Họ và tên<input name="fullName" autocomplete="name"></label>
+        <label>Số điện thoại<input name="phone" type="tel" inputmode="tel" autocomplete="tel"></label>
+        <label>Email<input name="email" type="email" autocomplete="email"></label>
+        <button class="button button-primary button-wide" type="submit">Lưu thay đổi</button>
+      </form>
+      <div class="account-settings-empty" data-account-settings-empty><p>Bạn cần đăng nhập để xem cài đặt tài khoản.</p><a class="button button-primary" href="login.html">Đăng nhập</a></div>
+      <a class="text-link auth-back" href="index.html">← Về trang chủ</a>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a><span>Ăn vặt vui, nhớ vị Kat.</span><a href="stores.html">Chi nhánh · 8:00–18:00</a></div></footer>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <script src="js/toast.js"></script><script src="js/account.js"></script>
+</body>
+</html>

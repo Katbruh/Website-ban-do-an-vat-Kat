@@ -3,6 +3,13 @@
   if (!form) return;
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    location.replace("admin.html");
+    const values = new FormData(form);
+    if (window.KatAccount) window.KatAccount.setSession({
+      role: "admin",
+      fullName: "Quản trị viên",
+      phone: String(values.get("phone") || "").trim(),
+      email: ""
+    });
+    window.location.replace("admin.html");
   });
 })();

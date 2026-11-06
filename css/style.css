@@ -194,6 +194,17 @@ img { max-width: 100%; }
 .choice-card small { color: #666666; }
 .form-stack { display: grid; gap: 16px; }
 .checkout-form { gap: 12px; }
+.choice-group { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.choice-group legend { grid-column: 1 / -1; width: 100%; margin-bottom: 4px; font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.choice-group > label { min-height: 52px; display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid #e5e5e5; border-radius: 12px; background: #ffffff; cursor: pointer; font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; transition: border-color 160ms ease, background-color 160ms ease; }
+.choice-group > label:hover { border-color: #c66c67; }
+.choice-group > label:has(input:checked) { border-color: #8c2224; background: #fff4f2; color: #8c2224; }
+.checkout-form input[type="radio"] { flex: 0 0 18px; width: 18px; height: 18px; min-height: 18px; margin: 0; padding: 0; border: 0; accent-color: #8c2224; }
+.checkout-form input[type="radio"]:focus-visible { outline: 2px solid #8c2224; outline-offset: 3px; }
+.cart-summary { display: grid; gap: 8px; padding-top: 16px; border-top: 1px solid #e5e5e5; }
+.cart-summary > div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; color: #666666; }
+.cart-summary > div strong { flex: 0 0 auto; color: #252525; text-align: end; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cart-summary-total { margin-top: 4px; padding-top: 12px; border-top: 1px solid #e5e5e5; color: #252525 !important; font: 650 1rem/1.5 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
 .pickup-address { display: grid; gap: 4px; padding: 12px; border-radius: 16px; background: #f5f5f5; }
 .payment-options { display: grid; gap: 8px; }
 .payment-options label { min-height: 44px; display: flex; align-items: center; gap: 8px; cursor: pointer; }
@@ -330,6 +341,7 @@ img { max-width: 100%; }
 .feedback-section h2 { max-width: 22ch; margin: 0; font: 650 1.5625rem/1.44 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
 .feedback-section p:not(.eyebrow) { color: #666666; }
 .feedback-actions { display: flex; flex-wrap: wrap; justify-content: end; align-items: center; gap: 12px; }
+.feedback-contact-detail { color: #252525; font-weight: 500; }
 .placeholder-button { cursor: default; }
 
 .product-pagination { display: flex; align-items: center; justify-content: center; gap: 12px; margin-block: 24px; }
@@ -450,6 +462,7 @@ img { max-width: 100%; }
 }
 
 @media (max-width: 42rem) {
+  .choice-group { grid-template-columns: minmax(0, 1fr); }
   .header-inner, .page-container, .footer-inner { width: calc(100% - 24px); }
   .header-inner { grid-template-columns: minmax(0, 1fr) auto; }
   .main-nav { order: 3; grid-column: 1 / -1; width: 100%; justify-content: flex-start; gap: 8px; overflow-x: auto; padding-block: 4px; }
@@ -650,4 +663,271 @@ img { max-width: 100%; }
 
   .voucher-feedback.is-info,
   .status-preparing { color: color(display-p3 0 0.3555 0.5816); }
+}
+
+/* Static catalogue, shared search, and standalone detail pages. */
+.header-search-form {
+  display: flex;
+  flex: 0 0 auto;
+  width: clamp(8.75rem, 14vw, 12rem);
+  align-items: center;
+  gap: 4px;
+}
+.header-search-form input {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 6px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #252525;
+}
+.header-search-form button {
+  flex: 0 0 40px;
+  min-height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background: #fee6e4;
+  color: #8c2224;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.menu-category-button {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #252525;
+  cursor: pointer;
+}
+.menu-category-button.is-active {
+  border-color: #8c2224;
+  background: #fee6e4;
+  color: #8c2224;
+}
+.menu-filters {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1.5fr) repeat(2, minmax(10rem, 1fr)) auto;
+  align-items: end;
+  gap: 12px;
+  width: 100%;
+}
+.menu-filters > .button {
+  min-height: 48px;
+  white-space: nowrap;
+}
+.product-card-link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+.product-card-link > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+.product-card .product-card-meta .eyebrow {
+  margin: 0;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block: 32px;
+}
+.product-detail-main,
+.order-success-main {
+  padding-block: 40px 80px;
+}
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  color: #666666;
+}
+.product-detail-static {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  padding: 24px;
+  border: 1px solid #e5e5e5;
+  border-radius: 24px;
+  background: #ffffff;
+}
+.product-detail-static > .detail-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.product-detail-static .detail-copy h1 {
+  margin: 4px 0 8px;
+  font: 650 1.9375rem/1.29 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+.product-detail-static .detail-options {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+}
+.product-detail-static .option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+.product-detail-static .option-row strong {
+  margin-inline-start: auto;
+  white-space: nowrap;
+}
+.detail-reviews {
+  display: grid;
+  gap: 12px;
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+.detail-reviews h2,
+.detail-reviews p {
+  margin-block: 0 8px;
+}
+.detail-reviews .form-stack {
+  margin-top: 12px;
+}
+.order-success-card {
+  display: grid;
+  gap: 16px;
+  width: min(100%, 760px);
+  margin-inline: auto;
+  padding: 32px;
+  border: 1px solid #e5e5e5;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgb(39 35 33 / 0.1);
+}
+.order-success-card h1,
+.order-success-card p {
+  margin: 0;
+}
+.order-success-card .order-id {
+  color: #8c2224;
+  font-size: 1.5rem;
+}
+.order-success-card .dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+.footer-social-link {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+@media (max-width: 64rem) {
+  .menu-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 42rem) {
+  .header-search-form {
+    width: 6rem;
+  }
+  .header-search-form input {
+    padding-inline: 8px;
+  }
+  .header-search-form button {
+    flex-basis: 36px;
+    min-height: 36px;
+  }
+  .menu-filters,
+  .product-detail-static {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .product-detail-static {
+    padding: 16px;
+  }
+  .product-detail-static > .detail-image {
+    max-height: 300px;
+  }
+  .order-success-card {
+    padding: 20px;
+  }
+  .order-success-card .dialog-actions {
+    flex-direction: column;
+  }
+  .cart-item-actions {
+    grid-column: 2 / -1;
+    flex-wrap: wrap;
+  }
+}
+
+/* Account settings and product option controls */
+.product-detail-static .detail-options .option-row {
+  width: 100%;
+  min-height: 56px;
+  gap: 14px;
+}
+.product-detail-static .detail-options .option-row span {
+  flex: 1;
+  min-width: 0;
+}
+.product-detail-static .detail-options input[type="radio"],
+.product-detail-static .detail-options input[type="checkbox"] {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0;
+  padding: 0;
+  accent-color: #8c2224;
+}
+.product-detail-static .detail-options input[type="radio"]:focus-visible,
+.product-detail-static .detail-options input[type="checkbox"]:focus-visible {
+  outline: 2px solid #8c2224;
+  outline-offset: 3px;
+}
+.product-detail-static .quantity-field input {
+  width: 96px;
+  min-height: 48px;
+}
+.review-login-prompt {
+  padding: 16px;
+  border-radius: 16px;
+  background: #f5f5f5;
+}
+.review-login-prompt a {
+  margin-inline-start: 4px;
+  font-weight: 600;
+}
+.account-settings-empty {
+  display: grid;
+  gap: 12px;
+  margin-block: 16px 24px;
+}
+.account-settings-empty .button {
+  justify-self: start;
+}
+@media (max-width: 42rem) {
+  .product-detail-static .detail-options .option-row {
+    min-height: 52px;
+    padding: 12px;
+  }
+}
+.admin-site-header .account-trigger {
+  color: #ffffff;
+}
+.admin-site-header .account-trigger:hover,
+.admin-site-header .account-trigger[aria-expanded="true"] {
+  background: #ffffff;
+  color: #8c2224;
 }

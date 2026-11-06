@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="home-page">
@@ -20,7 +20,7 @@
       <div><a href="tel:+84901234567">0901 234 567</a><a href="mailto:hello@kat.example">hello@kat.example</a></div>
     </div>
   </div>
-  <header class="site-header"><div class="header-inner page-container"><a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a><nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav><div class="header-tools"><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" data-cart-count>0</span></a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
+  <header class="site-header"><div class="header-inner page-container"><a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a><nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav><div class="header-tools"><form class="header-search-form" action="menu.html" method="get" role="search"><label class="sr-only" for="header-product-search">Tìm món ăn</label><input id="header-product-search" name="q" type="search" placeholder="Tìm món ăn" autocomplete="off"><button type="submit" aria-label="Tìm kiếm">⌕</button></form><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" data-cart-count>3</span></a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
 
   <main id="main-content">
     <section class="home-masthead" aria-label="Món ăn vặt Kat">
@@ -59,8 +59,11 @@
 
     <section id="featured" class="featured-section" aria-labelledby="featured-title">
       <div class="page-container">
-        <div class="section-heading"><div><p class="eyebrow">Từ bếp Kat</p><h2 id="featured-title">Best Seller</h2><p class="section-lede">Mở từng món để chọn loại và xem giá trước khi thêm vào giỏ.</p></div><a class="text-link" href="menu.html">Xem toàn bộ thực đơn <span aria-hidden="true">→</span></a></div>
-        <div class="product-grid featured-grid" id="featured-grid"></div>
+        <div class="section-heading"><div><p class="eyebrow">Từ bếp Kat</p><h2 id="featured-title">Best Seller</h2><p class="section-lede">Chọn món để xem chi tiết và giá bán.</p></div><a class="text-link" href="menu.html">Xem toàn bộ thực đơn <span aria-hidden="true">→</span></a></div>
+        <div class="product-grid featured-grid" id="featured-grid"><article class="product-card"><a class="product-card-link" href="product-detail.html"><img src="images/met-vien-chien-nho.jpg" alt="Mẹt viên chiên" loading="lazy"><div class="product-card-content"><div class="product-card-meta"><span class="eyebrow">Kat gợi ý</span><span class="review-stars" aria-label="Món được yêu thích">★★★★★</span></div><h3>Mẹt viên chiên</h3><div class="product-card-bottom"><div class="price-group"><strong>35.000đ–55.000đ</strong><small>2 lựa chọn</small></div></div></div></a></article>
+<article class="product-card"><a class="product-card-link" href="product-detail.html"><img src="images/banh-trang-tron.jpg" alt="Bánh tráng trộn" loading="lazy"><div class="product-card-content"><div class="product-card-meta"><span class="eyebrow">Kat gợi ý</span><span class="review-stars" aria-label="Món được yêu thích">★★★★★</span></div><h3>Bánh tráng</h3><div class="product-card-bottom"><div class="price-group"><strong>15.000đ–25.000đ</strong><small>6 lựa chọn</small></div></div></div></a></article>
+<article class="product-card"><a class="product-card-link" href="product-detail.html"><img src="images/ga-ran-truyen-thong.jpg" alt="Gà rán truyền thống" loading="lazy"><div class="product-card-content"><div class="product-card-meta"><span class="eyebrow">Kat gợi ý</span><span class="review-stars" aria-label="Món được yêu thích">★★★★★</span></div><h3>Gà rán</h3><div class="product-card-bottom"><div class="price-group"><strong>30.000đ–35.000đ</strong><small>2 lựa chọn</small></div></div></div></a></article>
+<article class="product-card"><a class="product-card-link" href="product-detail.html"><img src="images/ga-vien-lac-pho-mai.jpg" alt="Gà viên lắc phô mai" loading="lazy"><div class="product-card-content"><div class="product-card-meta"><span class="eyebrow">Kat gợi ý</span><span class="review-stars" aria-label="Món được yêu thích">★★★★★</span></div><h3>Gà viên lắc phô mai</h3><div class="product-card-bottom"><div class="price-group"><strong>25.000đ</strong></div></div></div></a></article></div>
       </div>
     </section>
 
@@ -83,42 +86,9 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-main page-container">
-      <div class="footer-brand"><a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a><p>Ăn vặt vui, nhớ vị Kat.</p><a href="tel:+84901234567">0901 234 567</a></div>
-      <div><strong>Đặt món</strong><a href="menu.html">Thực đơn</a><a href="offers.html">Ưu đãi hôm nay</a><a href="orders.html">Theo dõi đơn</a></div>
-      <div><strong>Về Kat</strong><a href="#about">Câu chuyện Kat</a><a href="stores.html">Chi nhánh</a><a href="feedback.html">Góp ý khách hàng</a><span>Thông tin tuyển dụng sẽ cập nhật</span></div>
-      <div><strong>Liên hệ</strong><a href="mailto:hello@kat.example">hello@kat.example</a><div class="footer-social-links" aria-label="Mạng xã hội của Kat"><a class="footer-social-link footer-social-zalo" href="https://zalo.me/kat-anvat-demo" target="_blank" rel="noopener noreferrer" aria-label="Zalo Kat" title="Zalo Kat">Z</a><a class="footer-social-link footer-social-facebook" href="https://www.facebook.com/kat.anvat.page.demo.2026" target="_blank" rel="noopener noreferrer" aria-label="Facebook Kat" title="Facebook Kat">f</a></div><span>Hằng ngày, 8:00–18:00</span></div>
-    </div>
-    <div class="footer-bottom"><div class="page-container"><span>© Kat · Ăn vặt vui, nhớ vị Kat.</span><span>Thông tin cửa hàng sẽ được cập nhật.</span></div></div>
-  </footer>
-  <div class="modal-backdrop" id="product-modal" hidden><section class="dialog product-dialog" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" tabindex="-1"><button class="icon-button dialog-close" type="button" data-close-modal aria-label="Đóng">×</button><div id="product-modal-content"></div></section></div>
-  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
-  <script src="js/initdata.js"></script><script src="js/toast.js"></script><script src="js/auth.js"></script><script src="js/main.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Lắng nghe sự kiện click vào các sản phẩm trên trang chủ (index.html)
-    const productGrids = document.querySelectorAll(".product-grid, .featured-grid, section");
-    
-    productGrids.forEach(container => {
-      container.addEventListener("click", function (e) {
-        const card = e.target.closest(".product-card");
-        if (card) {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-
-          // Thông tin cố định của sản phẩm đầu tiên (Bánh tráng)
-          const firstTitle = "Bánh tráng";
-          const firstPrice = "15.000đ–25.000đ";
-          const firstImg = "images/banh-trang-tron.jpg";
-          const firstDesc = "Bánh tráng giòn dai, trộn sốt me chua ngọt và rau thơm.";
-
-          // Chuyển hướng sang detail.html
-          window.location.href = `detail.html?name=${encodeURIComponent(firstTitle)}&price=${encodeURIComponent(firstPrice)}&img=${encodeURIComponent(firstImg)}&desc=${encodeURIComponent(firstDesc)}`;
-        }
-      }, true);
-    });
-  });
-</script>
+  <footer class="site-footer"><div class="footer-main page-container"><div class="footer-brand"><a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a><p>Ăn vặt vui, nhớ vị Kat.</p><a href="tel:+84901234567">0901 234 567</a></div><div><strong>Đặt món</strong><a href="menu.html">Thực đơn</a><a href="offers.html">Ưu đãi hôm nay</a><a href="orders.html">Theo dõi đơn</a></div><div><strong>Về Kat</strong><a href="index.html#about">Câu chuyện Kat</a><a href="stores.html">Chi nhánh</a><a href="feedback.html">Góp ý khách hàng</a></div><div><strong>Liên hệ</strong><a href="mailto:hello@kat.example">hello@kat.example</a><div class="footer-social-links" aria-label="Mạng xã hội của Kat"><button class="footer-social-link footer-social-zalo" type="button" data-demo-social aria-label="Zalo Kat" title="Zalo Kat">Z</button><button class="footer-social-link footer-social-facebook" type="button" data-demo-social aria-label="Facebook Kat" title="Facebook Kat">f</button></div><span>Hằng ngày, 8:00–18:00</span></div></div><div class="footer-bottom"><div class="page-container"><span>© Kat · Ăn vặt vui, nhớ vị Kat.</span><span>TP. HCM · 8:00–18:00</span></div></div></footer>
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <script src="js/toast.js"></script><script src="js/main.js"></script>
+  <script src="js/account.js"></script>
 </body>
 </html>
