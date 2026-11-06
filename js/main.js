@@ -104,7 +104,7 @@
   function renderOffers() {
     const publicVoucherGrid = document.getElementById("public-voucher-grid");
     const publicVouchers = (readStore("vouchers") || []).filter(function (voucher) { return voucher.isActive !== false && voucher.isPublic !== false; });
-    if (publicVoucherGrid) {
+    if (publicVoucherGrid && publicVoucherGrid.dataset.staticContent !== "true") {
       publicVoucherGrid.innerHTML = publicVouchers.map(function (voucher) {
         const reward = voucher.type === "percent" ? "Giảm " + Number(voucher.value) + "%" + (voucher.maxDiscount ? " · tối đa " + formatCurrency(voucher.maxDiscount) : "") : voucher.type === "shipping" ? "Hỗ trợ phí giao hàng đến " + formatCurrency(voucher.value) : "Giảm " + formatCurrency(voucher.value);
         return '<article class="public-voucher-card"><span>Ưu đãi khai trương</span><h2>' + escapeHTML(voucher.name) + '</h2><p>' + escapeHTML(voucher.description || reward) + '</p><code>' + escapeHTML(voucher.code) + '</code><small>' + escapeHTML(reward) + ' · Đơn từ ' + formatCurrency(voucher.minOrder) + ' · Mỗi khách dùng 1 lần</small></article>';
@@ -112,7 +112,7 @@
       const emptyVouchers = document.getElementById("empty-vouchers");
       if (emptyVouchers) emptyVouchers.hidden = publicVouchers.length > 0;
     }
-    if (!offerGrid) return;
+    if (!offerGrid || offerGrid.dataset.staticContent === "true") return;
     const eligibleDrinks = eligibleComboDrinks();
     const combos = (readStore("combos") || []).filter(function (combo) { return combo.isActive !== false && (!Number(combo.drinkCount) || eligibleDrinks.length > 0); });
     const groups = [
@@ -134,7 +134,7 @@
   }
 
   function renderLocations() {
-    if (!locationGrid || !window.KAT_STORES) return;
+    if (!locationGrid || !window.KAT_STORES || locationGrid.dataset.staticContent === "true") return;
     locationGrid.innerHTML = window.KAT_STORES.map(function (store) {
       const mapAction = store.mapUrl ? '<a class="text-link" href="' + escapeHTML(store.mapUrl) + '" target="_blank" rel="noopener">Mở bản đồ <span aria-hidden="true">↗</span></a>' : '<span class="helper-text">Cập nhật địa chỉ để thêm liên kết bản đồ.</span>';
       return '<article class="location-card"><span class="location-number">' + escapeHTML(store.shortLabel) + '</span><div><p class="eyebrow">Cửa hàng Kat</p><h3>' + escapeHTML(store.name) + '</h3><p>' + escapeHTML(store.address) + '</p><span class="location-hours">' + escapeHTML(store.hours) + '</span></div>' + mapAction + '</article>';
@@ -472,8 +472,13 @@
   }
   if (featuredGrid) { featuredGrid.addEventListener("click", handleProductGridClick); featuredGrid.addEventListener("keydown", handleProductGridKeydown); }
   if (offerGrid) offerGrid.addEventListener("click", function (event) {
+    const demoButton = event.target.closest("[data-demo-add-combo]");
+    if (demoButton) { showToast("Đã thêm combo vào giỏ hàng", "success"); return; }
     const button = event.target.closest("[data-open-combo]");
     if (button) openComboModal(button.dataset.openCombo, button);
+  });
+  if (locationGrid) locationGrid.addEventListener("click", function (event) {
+    if (event.target.closest("[data-demo-map]")) showToast("Đã mở bản đồ chỉ đường (mô phỏng)");
   });
   if (modal && modalContent) {
     modal.addEventListener("click", function (event) { if (event.target === modal || event.target.closest("[data-close-modal]")) closeModal(); });
