@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chỉnh sửa voucher Kat khai trương.">
+  <meta name="robots" content="noindex">
+  <title>Sửa voucher · Quản trị Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page">
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="site-header admin-site-header">
+    <div class="header-inner page-container">
+      <a class="brand-lockup" href="admin.html" aria-label="Kat, tổng quan quản trị"><img class="brand-logo" src="../images/kat-logo.png" alt=""><span class="admin-wordmark">Quản trị</span></a>
+      <div class="admin-header-actions"><span class="auth-slot"><a class="icon-tool account-login-link" href="admin-login.html" aria-label="Tài khoản" title="Tài khoản"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div>
+    </div>
+  </header>
+  <main id="main-content" class="admin-main page-container">
+    <div class="admin-heading"><div><p class="eyebrow">Voucher · Chỉnh sửa</p><h1>Sửa voucher</h1></div><a class="button button-secondary" href="admin-vouchers.html">← Danh sách voucher</a></div>
+    <div class="admin-layout">
+      <nav class="admin-nav" aria-label="Mục quản trị">
+        <a class="admin-nav-link" href="admin.html">Tổng quan</a>
+        <a class="admin-nav-link" href="admin-users.html">Khách hàng</a>
+        <a class="admin-nav-link" href="admin-orders.html">Đơn hàng</a>
+        <a class="admin-nav-link" href="admin-products.html">Thực đơn</a>
+        <a class="admin-nav-link" href="admin-categories.html">Danh mục</a>
+        <a class="admin-nav-link is-active" href="admin-vouchers.html" aria-current="page">Voucher</a>
+        <a class="admin-nav-link" href="admin-reviews.html">Đánh giá</a>
+        <a class="admin-nav-link" href="admin-feedback.html">Góp ý</a>
+      </nav>
+      <section class="admin-content">
+        <form class="admin-section admin-category-form" data-admin-add-form data-add-kind="voucher" data-form-mode="edit" data-return-to="admin-vouchers.html">
+          <p class="eyebrow">Thông tin ưu đãi</p>
+          <h2>KATKHAITRUONG</h2>
+          <p class="helper-text">Chỉnh sửa nội dung và điều kiện áp dụng voucher.</p>
+          <label>Mã voucher<input name="code" type="text" maxlength="24" value="KATKHAITRUONG" required></label>
+          <label>Tên voucher<input name="name" type="text" maxlength="80" value="Mừng Kat khai trương" required></label>
+          <label>Mô tả voucher<textarea name="description" rows="3" maxlength="200" required>Giảm 15% cho đơn ăn vặt đầu tiên tại Kat.</textarea></label>
+          <label>Loại giảm<select name="discountType" data-voucher-discount-type required><option value="fixed">Giảm số tiền</option><option value="percent" selected>Giảm theo phần trăm</option><option value="shipping">Giảm phí giao hàng</option></select></label>
+          <div class="form-columns">
+            <label><span data-voucher-discount-label>Mức giảm (%)</span><input name="discountValue" type="number" min="1" max="100" step="1" inputmode="numeric" data-voucher-discount-value value="15" required></label>
+            <label>Đơn tối thiểu (đ)<input name="minimumOrder" type="text" inputmode="numeric" value="50.000" required></label>
+          </div>
+          <label data-voucher-cap-field>Mức giảm tối đa (đ)<input name="discountCap" type="text" inputmode="numeric" value="20.000" required></label>
+          <p class="helper-text">Voucher hiện giảm tối đa 20.000đ cho đơn từ 50.000đ.</p>
+          <div class="dialog-actions"><a class="button button-secondary" href="admin-vouchers.html">Hủy</a><button class="button button-primary" type="submit">Lưu thay đổi</button></div>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="footer-bottom"><div class="page-container"><span>© Kat · Khu vực quản trị.</span><a href="../index.html">Về trang bán hàng</a></div></div></footer>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <script src="../js/toast.js"></script>
+  <script src="js/admin.js"></script>
+  
+  <script src="../js/account.js"></script>
+</body>
+</html>

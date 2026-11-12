@@ -1,3 +1,6 @@
+/* ============================================================
+   TÀI KHOẢN KHÁCH: đăng nhập và đăng ký
+   ============================================================ */
 (function () {
   const params = new URLSearchParams(window.location.search);
   if (params.get("reset") === "success") {
@@ -52,3 +55,35 @@
     setTab("login");
   });
 })();
+
+/* ============================================================
+   QUÊN MẬT KHẨU: chuyển trang và OTP mô phỏng
+   ============================================================ */
+(function () {
+  const requestForm = document.getElementById("password-reset-request");
+  if (requestForm) {
+    requestForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const phone = String(requestForm.elements.phone.value || "").trim();
+      try { window.sessionStorage.setItem("katPasswordResetPhone", phone); } catch (error) {}
+      if (typeof window.showToast === "function") window.showToast(phone ? "Đã gửi mã OTP đến " + phone + "." : "Đã gửi mã OTP.", "success");
+      window.setTimeout(function () { window.location.href = "reset-password.html"; }, 1200);
+    });
+  }
+
+  const confirmForm = document.getElementById("password-reset-confirm");
+  if (!confirmForm) return;
+
+  let phone = "0908 345 612";
+  try { phone = window.sessionStorage.getItem("katPasswordResetPhone") || phone; } catch (error) {}
+  confirmForm.elements.phone.value = phone;
+  const notice = document.getElementById("otp-sent-notice");
+  if (notice) notice.textContent = "Nhập mã OTP gồm 6 chữ số đã được gửi đến " + phone + " để xác minh tài khoản.";
+
+  confirmForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    try { window.sessionStorage.removeItem("katPasswordResetPhone"); } catch (error) {}
+    window.location.href = "login.html?reset=success";
+  });
+})();
+

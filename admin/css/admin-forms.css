@@ -1,0 +1,395 @@
+/* Biểu mẫu và ô nhập liệu quản trị */
+
+/* 1. Ô nhập liệu dùng chung */
+.admin-form {
+  margin-top: 16px;
+}
+.admin-form h2 {
+  margin: 0;
+  font: 650 1.5625rem/1.44 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.form-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.image-preview-wrap {
+  width: min(100%, 352px);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f5f5f5;
+}
+.image-preview-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.variant-image-fields {
+  display: grid;
+  gap: 12px;
+}
+.variant-image-fields > .helper-text {
+  margin: 0;
+}
+.variant-image-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(9rem, 0.45fr);
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  background: #ffffff;
+}
+.variant-image-row > div:first-child {
+  display: grid;
+  gap: 8px;
+}
+.variant-image-upload {
+  display: grid;
+  gap: 4px;
+}
+.variant-image-preview-wrap {
+  width: min(100%, 12rem);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f5f5f5;
+}
+.variant-image-preview-wrap[hidden] {
+  display: none;
+}
+.variant-image-preview-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+.checkbox-field input {
+  accent-color: #8c2224;
+}
+.admin-form .dialog-actions {
+  margin-top: 8px;
+}
+.admin-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-block: 16px;
+}
+.admin-filter-grid label {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  color: #666666;
+  font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.admin-filter-grid input, .admin-filter-grid select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding-inline: 12px;
+  border: 1px solid #8d857f;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #252525;
+}
+
+/* 2. Biểu mẫu thêm có thể mở rộng */
+.admin-add-form > summary {
+  display: inline-flex;
+  align-items: center;
+  list-style: none;
+  cursor: pointer;
+}
+.admin-add-form > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 3. Biểu mẫu trên màn hình nhỏ */
+@media (max-width: 42rem) {
+  .variant-image-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .form-columns, .admin-filter-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 4. Biểu mẫu danh mục và món ăn */
+.admin-category-description {
+  color: #666666;
+}
+.admin-category-form, .admin-product-edit-form {
+  display: grid;
+  gap: 16px;
+}
+.admin-category-form > label, .admin-quantity-field {
+  display: grid;
+  gap: 6px;
+  color: #4b4642;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.admin-category-form input, .admin-category-form textarea, .admin-quantity-field input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid #b8b0aa;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #252525;
+  font: inherit;
+}
+.admin-category-form textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+.product-basic-section, .product-option-section {
+  min-width: 0;
+  margin: 0;
+}
+.product-option-section legend {
+  padding-inline: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.product-option-section legend span {
+  margin-left: 6px;
+  color: #77716d;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.product-form-section-heading h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.product-form-section-heading .eyebrow {
+  margin: 0 0 4px;
+}
+.product-basics-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+.product-main-image-editor {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 10px;
+}
+.product-main-image-preview {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #f5f2f0;
+  color: #77716d;
+}
+.product-main-image-preview img, .option-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product-main-image-preview img[hidden], .option-image-preview img[hidden] {
+  display: none;
+}
+.product-basic-fields {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+}
+.product-basic-fields > label, .admin-field, .admin-category-form > label {
+  display: grid;
+  gap: 6px;
+  color: #4b4642;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.product-basic-fields input, .product-basic-fields select, .product-basic-fields textarea, .admin-field input {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #b8b0aa;
+  border-radius: 13px;
+  background: #ffffff;
+  color: #252525;
+  font: inherit;
+}
+.product-basic-fields textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+.product-basic-fields input[readonly] {
+  background: #f5f2f0;
+  color: #59534f;
+}
+.option-enabled-toggle, .default-option-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  color: #4b4642;
+  font-size: 0.875rem;
+}
+.product-basic-fields > .option-enabled-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+}
+.option-enabled-toggle input, .default-option-toggle input {
+  width: 18px;
+  min-height: auto;
+  height: 18px;
+  accent-color: #8c2224;
+}
+.product-price-fields {
+  align-items: start;
+}
+.product-option-section > .helper-text {
+  margin: 0 0 14px;
+}
+.option-editor-list, .simple-option-list {
+  display: grid;
+  gap: 12px;
+}
+.option-editor-card {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  background: #ffffff;
+}
+.option-editor-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.variant-editor-content {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+}
+.option-image-editor {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+.option-image-preview {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f5f2f0;
+  color: #77716d;
+  font-size: 0.75rem;
+}
+.option-image-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.main-image-controls {
+  margin-top: 0;
+}
+.admin-image-upload {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 6px 10px;
+  overflow: hidden;
+  border: 1px solid #ded8d4;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #8c2224;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+.admin-image-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 6px 10px;
+  border: 1px solid #ded8d4;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #8c2224;
+  font: inherit;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+.admin-image-remove:hover {
+  border-color: #c66c67;
+  background: #f8f3f1;
+}
+.option-image-file-name {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: #77716d;
+  font-size: 0.75rem;
+}
+.option-image-file-name[hidden] {
+  display: none;
+}
+.admin-image-upload input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.option-editor-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(140px, 0.45fr);
+  align-items: end;
+  gap: 12px;
+  min-width: 0;
+}
+.option-editor-fields .default-option-toggle {
+  grid-column: 1 / -1;
+}
+.simple-option-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+}
+.simple-option-row .default-option-toggle {
+  align-self: center;
+  white-space: nowrap;
+}
+.add-option-button {
+  margin-top: 12px;
+}
+.admin-product-edit-form .dialog-actions, .admin-category-form .dialog-actions {
+  justify-content: flex-end;
+}
+.product-save-actions {
+  margin-top: 0;
+}

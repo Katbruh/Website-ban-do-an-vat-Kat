@@ -1,5 +1,7 @@
 (function () {
   "use strict";
+
+  /* ---------- Phiên đăng nhập mẫu ---------- */
   const STORAGE_KEY = "katSession";
 
   function readSession() {
@@ -31,6 +33,7 @@
   }
   window.KatAccount = { getSession: readSession, setSession: writeSession, clearSession: clearSession };
 
+  /* ---------- Menu tài khoản trên thanh điều hướng ---------- */
   const icon = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg>';
   let menuIndex = 0;
 
@@ -64,9 +67,13 @@
 
     const settings = document.createElement("a");
     settings.className = "account-menu-link";
-    settings.href = document.body.classList.contains("admin-page") ? "../account-settings.html" : "account-settings.html";
+    const onAdminPage = document.body.classList.contains("admin-page");
+    const isAdmin = session.role === "admin";
+    settings.href = isAdmin
+      ? (onAdminPage ? "admin.html" : "admin/admin.html")
+      : (onAdminPage ? "../account-settings.html" : "account-settings.html");
     settings.setAttribute("role", "menuitem");
-    settings.textContent = "Cài đặt tài khoản";
+    settings.textContent = isAdmin ? "Quản lý trang quản trị" : "Cài đặt tài khoản";
 
     const logout = document.createElement("button");
     logout.className = "account-menu-signout";
@@ -109,6 +116,7 @@
     });
   }
 
+  /* ---------- Khu vực tài khoản và cài đặt ---------- */
   function renderAccountArea() {
     const area = document.querySelector("[data-account-area-content]");
     const loginNotice = document.querySelector("[data-account-login-notice]");
@@ -148,6 +156,7 @@
     if (form.elements.birthYear) form.elements.birthYear.value = session.birthYear || "";
   }
 
+  /* ---------- Đóng/mở menu, đăng xuất và lưu cài đặt ---------- */
   document.addEventListener("click", function (event) {
     const trigger = event.target.closest("[data-account-trigger]");
     if (trigger) {
@@ -210,6 +219,7 @@
     if (typeof window.showToast === "function") window.showToast("Đã lưu cài đặt tài khoản.", "success");
   });
 
+  /* ---------- Quyền gửi đánh giá và vào khu vực quản trị ---------- */
   function renderReviewGate() {
     const form = document.querySelector("[data-review-form]");
     const prompt = document.querySelector("[data-review-login-prompt]");

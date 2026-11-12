@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi" data-theme="light">
 <head>
   <meta charset="utf-8">
@@ -21,18 +21,19 @@
     </div>
   </header>
   <main id="main-content" class="admin-main page-container">
-    <div class="admin-heading"><div><p class="eyebrow">Món ăn · Chỉnh sửa</p><h1>Sửa món Bánh tráng</h1></div><a class="button button-secondary" href="admin-products.html">← Danh sách món ăn</a></div>
+    <div class="admin-heading"><div><p class="eyebrow">Thực đơn · Chỉnh sửa</p><h1>Sửa món Bánh tráng</h1></div><a class="button button-secondary" href="admin-products.html">← Danh sách thực đơn</a></div>
     <div class="admin-layout">
       <nav class="admin-nav" aria-label="Mục quản trị">
         <a class="admin-nav-link" href="admin.html">Tổng quan</a>
-        <a class="admin-nav-link" href="admin-orders.html">Đơn hàng</a>
-        <a class="admin-nav-link is-active" href="admin-products.html" aria-current="page">Món ăn</a>
+        <a class="admin-nav-link" href="admin-users.html">Khách hàng</a>
+<a class="admin-nav-link" href="admin-orders.html">Đơn hàng</a>
+        <a class="admin-nav-link is-active" href="admin-products.html" aria-current="page">Thực đơn</a>
         <a class="admin-nav-link" href="admin-categories.html">Danh mục</a>
-        <a class="admin-nav-link" href="admin-combos.html">Combo</a>
+        
         <a class="admin-nav-link" href="admin-vouchers.html">Voucher</a>
         <a class="admin-nav-link" href="admin-reviews.html">Đánh giá</a>
         <a class="admin-nav-link" href="admin-feedback.html">Góp ý</a>
-        <a class="admin-nav-link" href="admin-users.html">Tài khoản</a>
+        
       </nav>
       <section class="admin-content">
         <form class="admin-product-edit-form" data-product-edit-form>
@@ -42,7 +43,7 @@
               <div class="product-main-image-editor">
                 <div class="product-main-image-preview"><img src="../images/banh-trang-tron.jpg" alt="Bánh tráng" data-main-image-preview><span data-main-image-placeholder hidden>Chưa có ảnh</span></div>
                 <div class="option-image-controls main-image-controls">
-                  <label class="admin-image-upload">Chọn ảnh<input type="file" accept="image/*" data-main-image-input></label>
+                  <button class="admin-image-upload" type="button" data-choose-main-image>Chọn ảnh</button>
                   <button class="admin-image-remove" type="button" data-remove-main-image>Gỡ ảnh</button>
                 </div>
                 <span class="option-image-file-name" data-main-image-file-name hidden></span>
@@ -51,13 +52,13 @@
                 <label>Tên món<input name="productName" type="text" value="Bánh tráng" maxlength="80" required></label>
                 <div class="form-columns">
                   <label>Loại món<select name="productType"><option value="food" selected>Đồ ăn</option><option value="drink">Thức uống</option></select></label>
-                  <label>Danh mục<select name="category"><option selected>Bánh tráng &amp; món trộn</option><option>Gà rán &amp; đồ chiên</option><option>Món mặn ăn vặt</option><option>Đồ ngọt &amp; tráng miệng</option><option>Trà sữa &amp; trà pha</option><option>Nước ngọt lon</option></select></label>
+                  <label>Danh mục<select name="category"><option selected>Bánh tráng &amp; món trộn</option><option>Gà rán &amp; đồ chiên</option><option>Món mặn ăn vặt</option><option>Đồ ngọt &amp; tráng miệng</option><option>Trà sữa &amp; trà pha</option><option>Nước giải khát</option></select></label>
                 </div>
                 <label>Mô tả món<textarea name="description" rows="3" maxlength="240">Bánh tráng giòn dai, trộn sốt me chua ngọt và rau thơm.</textarea></label>
-                <label class="option-enabled-toggle"><input type="checkbox" name="hasVariants" checked data-has-variants><span>Món có nhiều lựa chọn giá</span></label>
+                <label class="option-enabled-toggle"><input type="checkbox" name="hasVariants" checked data-has-variants><span>Món có nhiều loại</span></label>
                 <div class="form-columns product-price-fields">
-                  <label><span data-price-label>Giá thấp nhất (đ)</span><input name="sellingPrice" type="number" min="0" step="1000" value="15000" data-selling-price readonly required></label>
-                  <label>Giá gốc (đ)<input name="originalPrice" type="number" min="0" step="1000" placeholder="Không bắt buộc"></label>
+                  <label><span data-price-label>Giá thấp nhất (đ)</span><input name="sellingPrice" type="text" inputmode="numeric" value="15.000" data-selling-price readonly required></label>
+                  <label>Giá gốc (đ)<input name="originalPrice" type="text" inputmode="numeric" placeholder="Ví dụ: 30.000"></label>
                 </div>
                 <p class="helper-text" data-price-help>Giá thấp nhất được tính từ các loại món bên dưới và hiển thị trên thực đơn.</p>
               </div>
@@ -94,6 +95,7 @@
   <div id="toast-region" class="toast-region" aria-live="polite"></div>
   <script src="../js/toast.js"></script>
   <script src="js/admin.js"></script>
+  
   <script src="js/admin-product-edit.js"></script>
   <script src="../js/account.js"></script>
 </body>

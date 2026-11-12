@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kết quả món ăn được lọc theo từ khóa, danh mục và khoảng giá.">
+  <meta name="theme-color" content="#FFFFFF"><!-- od-ignore: browser chrome follows the original Maika white background -->
+  <title>Kết quả thực đơn — Kat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="inner-page menu-page menu-results-page">
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="site-header"><div class="header-inner page-container"><a class="brand-lockup" href="index.html" aria-label="Kat, về trang chủ"><img class="brand-logo" src="images/kat-logo.png" alt=""></a><nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="menu.html">Thực đơn</a><a class="nav-link" href="offers.html">Ưu đãi hôm nay</a><a class="nav-link" href="orders.html">Đơn hàng</a><a class="nav-link" href="stores.html">Cửa hàng</a><a class="nav-link" href="feedback.html">Góp ý</a></nav><div class="header-tools"><a class="icon-tool cart-tool" href="cart.html" aria-label="Giỏ hàng" title="Giỏ hàng"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" data-cart-count>3</span></a><span class="auth-slot"><a class="icon-tool account-login-link" href="login.html" aria-label="Đăng nhập" title="Đăng nhập"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20a6.6 6.6 0 0 1 13.2 0"></path></svg></a></span></div></div></header>
+  <main id="main-content" class="catalog-main page-container">
+    <section id="menu" class="menu-section" aria-label="Kết quả thực đơn"><div class="menu-results-heading"><p class="eyebrow">Thực đơn Kat</p><h1>Kết quả tìm kiếm</h1><p data-results-description>Các món phù hợp với điều kiện tìm kiếm của bạn.</p></div>
+  <div class="menu-toolbar">
+    <div class="category-list" id="category-list" aria-label="Danh mục món"><button class="menu-category-button" type="button" data-category-toggle aria-pressed="false">Tất cả món</button><button class="menu-category-button" type="button" data-category-toggle aria-pressed="false">Bánh tráng &amp; món trộn</button><button class="menu-category-button is-active" type="button" data-category-toggle aria-pressed="true">Gà rán &amp; đồ chiên</button><button class="menu-category-button" type="button" data-category-toggle aria-pressed="false">Món mặn ăn vặt</button><button class="menu-category-button" type="button" data-category-toggle aria-pressed="false">Đồ ngọt &amp; tráng miệng</button><button class="menu-category-button" type="button" data-category-toggle aria-pressed="false">Trà sữa &amp; trà pha</button><button class="menu-category-button" type="button" data-category-toggle aria-pressed="false">Nước giải khát</button></div>
+    <form class="menu-filters" id="catalog-filter-form" data-menu-filter action="menu-results.html" method="get">
+      <label class="search-field"><span class="sr-only">Tìm món</span><input id="product-search" type="search" placeholder="Bạn đang thèm món gì?" autocomplete="off"><span class="search-symbol" aria-hidden="true">⌕</span></label>
+      <label class="select-field"><span class="sr-only">Danh mục</span><select><option value="all">Tất cả danh mục</option><option>Bánh tráng &amp; món trộn</option><option selected>Gà rán &amp; đồ chiên</option><option>Món mặn ăn vặt</option><option>Đồ ngọt &amp; tráng miệng</option><option>Trà sữa &amp; trà pha</option><option>Nước giải khát</option></select></label>
+      <label class="select-field"><span class="sr-only">Khoảng giá</span><select><option value="all">Mọi mức giá</option><option value="under15">Dưới 15.000đ</option><option value="15to30">15.000đ–30.000đ</option><option value="over30" selected>Trên 30.000đ</option></select></label>
+      <button class="button button-primary" type="submit">Tìm kiếm</button>
+    </form>
+  </div>
+  <p class="menu-count" id="result-count">2 món phù hợp</p>
+  <div class="product-grid" id="product-grid">
+<article class="product-card" data-product-category="Gà rán &amp; đồ chiên"><a class="product-card-link" href="product-detail.html"><img src="images/met-vien-chien-nho.jpg" alt="Mẹt viên chiên"><div class="product-card-content"><div class="product-card-meta"><span class="eyebrow">Kat gợi ý</span><span class="review-stars" aria-label="Món được yêu thích">★★★★★</span></div><h3>Mẹt viên chiên</h3><div class="product-card-bottom"><div class="price-group"><strong>35.000đ–55.000đ</strong><small>2 lựa chọn</small></div></div></div></a></article>
+<article class="product-card" data-product-category="Gà rán &amp; đồ chiên"><a class="product-card-link" href="product-detail.html"><img src="images/ga-ran-truyen-thong.jpg" alt="Gà rán truyền thống"><div class="product-card-content"><div class="product-card-meta"><span class="eyebrow">Kat gợi ý</span><span class="review-stars" aria-label="Món được yêu thích">★★★★★</span></div><h3>Gà rán</h3><div class="product-card-bottom"><div class="price-group"><strong>30.000đ–35.000đ</strong><small>2 lựa chọn</small></div></div></div></a></article>
+</div>
+  <nav class="pagination" data-demo-pagination aria-label="Phân trang thực đơn"><button class="button button-primary" type="button" aria-current="page" data-demo-action data-message="Đang xem trang 1 của kết quả tìm kiếm.">1</button></nav>
+</section>
+  </main>
+  <footer class="site-footer">
+  <div class="footer-main page-container">
+    <div class="footer-brand"><a class="brand-name" href="index.html">kat<span class="brand-dot">.</span></a><p>Ăn vặt vui, nhớ vị Kat.</p></div>
+    <div><strong>Hotline đặt món</strong><span>0901 234 567</span><small>Hằng ngày, 8:00–18:00</small></div>
+    <div><strong>Đặt món</strong><a href="menu.html">Thực đơn</a><a href="orders.html">Theo dõi đơn hàng</a><a href="cart.html">Giỏ hàng</a></div>
+    <div><strong>Về Kat</strong><a href="stores.html">Cửa hàng</a><a href="feedback.html">Góp ý</a><span>hello@kat.example</span></div>
+  </div>
+  <div class="footer-bottom"><div class="page-container"><span>© 2026 Kat · Ăn vặt vui, nhớ vị Kat.</span><span>TP. HCM · 8:00–18:00</span></div></div>
+</footer>  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <script src="js/toast.js"></script><script src="js/main.js"></script>
+  <script src="js/account.js"></script>
+</body>
+</html>

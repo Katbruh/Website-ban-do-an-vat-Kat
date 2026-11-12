@@ -1,3 +1,6 @@
+/* ============================================================
+   GÓP Ý: hiện thông báo sau khi gửi form mẫu
+   ============================================================ */
 (function () {
   const form = document.getElementById("customer-feedback-form");
   if (!form) return;

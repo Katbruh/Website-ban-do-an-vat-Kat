@@ -1,3 +1,6 @@
+/* ============================================================
+   GIỎ HÀNG: địa chỉ nhận món, hình thức nhận và hoàn tất đơn
+   ============================================================ */
 (function () {
   const form = document.getElementById("checkout-form");
   const button = document.getElementById("place-order");
@@ -12,6 +15,7 @@
   const branchSelect = form.elements.namedItem("pickupBranch");
   let previouslyUsingSavedAddress = true;
 
+  /* ---------- Chọn địa chỉ đã lưu hoặc nhập địa chỉ mới ---------- */
   function updateAddressControls() {
     const useSavedAddress = addressChoices.some(function (choice) { return choice.checked && choice.value === "saved"; });
     savedAddress.disabled = !useSavedAddress;
@@ -22,6 +26,7 @@
     previouslyUsingSavedAddress = useSavedAddress;
   }
 
+  /* ---------- Khóa chọn chi nhánh khi giao tận nơi ---------- */
   function updatePickupBranch() {
     const selectedType = orderTypes.find(function (choice) { return choice.checked; });
     const isDelivery = selectedType && selectedType.value === "delivery";

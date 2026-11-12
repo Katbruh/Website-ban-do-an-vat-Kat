@@ -1,0 +1,444 @@
+/* Ảnh đầu trang, món nổi bật và ưu đãi */
+
+/* 1. Các phần trên trang chủ */
+.home-page .featured-section {
+  padding-block-end: 32px;
+}
+.home-page .menu-preview {
+  margin-block: 0 32px;
+}
+.home-page .about-section {
+  margin-block: 32px;
+  padding-block: 32px;
+}
+.home-page .location-preview {
+  margin-block: 64px 32px;
+}
+
+/* 2. Trình chiếu ảnh đầu trang */
+.home-masthead {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.masthead-carousel {
+  position: relative;
+  width: 100%;
+  height: clamp(31rem, 48vw, 43rem);
+  min-height: 30rem;
+  overflow: hidden;
+  border-radius: 0;
+  background: #f5f5f5;
+}
+.masthead-slides, .masthead-slide {
+  position: absolute;
+  inset: 0;
+}
+.masthead-slide {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 620ms cubic-bezier(.2,.75,.25,1), opacity 620ms ease;
+}
+.masthead-slide.is-active {
+  z-index: 2;
+  opacity: 1;
+  transform: translateX(0);
+}
+.masthead-slide.is-entering-left {
+  z-index: 2;
+  opacity: 1;
+  transform: translateX(-100%);
+}
+.masthead-slide.is-entering-right {
+  z-index: 2;
+  opacity: 1;
+  transform: translateX(100%);
+}
+.masthead-slide.is-exiting-left {
+  z-index: 1;
+  opacity: 1;
+  transform: translateX(-100%);
+}
+.masthead-slide.is-exiting-right {
+  z-index: 1;
+  opacity: 1;
+  transform: translateX(100%);
+}
+.masthead-carousel.is-fading .masthead-slide {
+  z-index: 2;
+  transform: none;
+  transition: opacity 900ms ease;
+}
+.masthead-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.masthead-photo-note {
+  position: absolute;
+  inset-inline-end: clamp(24px, 7vw, 64px);
+  inset-block-end: clamp(24px, 6vw, 64px);
+  z-index: 2;
+  display: grid;
+  gap: 8px;
+  width: min(20rem, 30vw);
+  padding: 16px 24px;
+  border: 1px solid #e5e5e5;
+  border-inline-start: 4px solid #8c2224;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: 0px 0px 0px 1px rgb(39 35 33 / 0.1), 0px 1px 2px 0px rgb(39 35 33 / 0.107), 0px 4px 12px 0px rgb(39 35 33 / 0.091);
+}
+.masthead-photo-note span {
+  color: #8c2224;
+  font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+}
+.masthead-photo-note strong {
+  font: 650 1.25rem/1.4 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.masthead-copy {
+  position: absolute;
+  inset-inline-start: clamp(24px, 7vw, 64px);
+  inset-block-start: 50%;
+  z-index: 3;
+  width: min(34rem, 48vw);
+  padding: clamp(24px, 4vw, 40px);
+  transform: translateY(-50%);
+  border-inline-start: 4px solid #8c2224;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: 0px 0px 0px 1px rgb(39 35 33 / 0.1), 0px 1px 2px 0px rgb(39 35 33 / 0.107), 0px 4px 12px 0px rgb(39 35 33 / 0.091);
+}
+.masthead-copy h1 {
+  max-width: none;
+  margin: 0;
+  color: #111111;
+  font: 650 2.4375rem/1.2308 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.04em;
+}
+.masthead-copy h1 .masthead-title-nowrap {
+  display: inline-block;
+  white-space: nowrap;
+  color: #111111;
+}
+.masthead-copy h1 span, .hero-delivery-promise span {
+  color: #8c2224;
+}
+.delivery-feature-label {
+  margin: 0 0 12px;
+  color: #8c2224;
+  font: 500 1rem/1.5 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.hero-delivery-promise {
+  margin: 16px 0 0;
+  color: #111111;
+  font: 650 1.5625rem/1.44 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.delivery-feature-rule {
+  width: 64px;
+  height: 4px;
+  margin-block: 16px;
+  background: #8c2224;
+}
+.hero-lede {
+  max-width: 40ch;
+  margin: 0 0 24px;
+  color: #666666;
+  font: 400 1.25rem/1.4 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.masthead-arrow {
+  position: absolute;
+  inset-block-start: 50%;
+  z-index: 4;
+  width: 56px;
+  height: 56px;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 650ms ease;
+  pointer-events: none;
+  border: 1px solid #e5e5e5;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #252525;
+  box-shadow: 0px 0px 0px 1px rgb(39 35 33 / 0.1), 0px 1px 2px 0px rgb(39 35 33 / 0.107);
+  cursor: pointer;
+  font-size: 1.5625rem;
+}
+.masthead-carousel.is-controls-visible .masthead-arrow, .masthead-arrow:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.masthead-prev {
+  inset-inline-start: 16px;
+}
+.masthead-next {
+  inset-inline-end: 16px;
+}
+.masthead-dots {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-end: 16px;
+  z-index: 4;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  border-radius: 9999px;
+  background: #ffffff;
+}
+.masthead-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background: #e5e5e5;
+  cursor: pointer;
+}
+.masthead-dots button[aria-pressed="true"] {
+  width: 24px;
+  background: #8c2224;
+}
+.price-group small {
+  flex-basis: 100%;
+  color: #666666;
+  font: 400 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 3. Danh sách voucher */
+.offers-page .offers-main {
+  padding-block: clamp(36px, 5vw, 64px) clamp(56px, 8vw, 96px);
+}
+.public-vouchers {
+  padding: 0;
+}
+.offers-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.offers-kicker {
+  margin: 0 0 8px;
+  color: #8c2224;
+  font: 600 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.offers-heading h1 {
+  margin: 0;
+  font: 650 clamp(1.75rem, 3vw, 2.25rem)/1.25 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.offers-description {
+  margin: 8px 0 0;
+  color: #666666;
+}
+.offers-count {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border: 1px solid #ead2cf;
+  border-radius: 9999px;
+  background: #fff7f6;
+  color: #8c2224;
+  font: 600 0.875rem/1.5 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.public-voucher-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+.public-voucher-card {
+  display: flex;
+  min-width: 0;
+  min-height: 260px;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid #e5e5e5;
+  border-inline-start: 4px solid #8c2224;
+  border-radius: 20px;
+  background: #ffffff;
+}
+.public-voucher-card > span {
+  color: #8c2224;
+  font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.public-voucher-card h2 {
+  margin: 0;
+  font: 650 1.25rem/1.4 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.public-voucher-card p {
+  margin: 0;
+  color: #666666;
+}
+.public-voucher-card code {
+  width: fit-content;
+  max-width: 100%;
+  padding: 8px 12px;
+  overflow-wrap: anywhere;
+  border: 1px dashed #c66c67;
+  border-radius: 12px;
+  background: #fff7f6;
+  color: #8c2224;
+  font: 600 0.9375rem/1.5 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.04em;
+}
+.public-voucher-card small {
+  margin-top: auto;
+  color: #666666;
+  font: 400 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.empty-vouchers {
+  padding: 16px;
+  border-radius: 24px;
+  background: #f5f5f5;
+  color: #666666;
+}
+.voucher-admin-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.voucher-visibility-badge {
+  color: #666666;
+  font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 4. Bố cục trên màn hình nhỏ */
+@media (max-width: 64rem) {
+  .masthead-carousel {
+    height: clamp(30rem, 58vw, 38rem);
+  }
+  .masthead-copy {
+    width: min(32rem, 56vw);
+  }
+  .masthead-photo-note {
+    width: min(18rem, 30vw);
+  }
+  .public-voucher-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .public-voucher-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 10px);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 42rem) {
+  .masthead-carousel {
+    height: 47rem;
+    min-height: 47rem;
+  }
+  .masthead-photo-note {
+    inset-inline-end: 12px;
+    inset-block-start: 12px;
+    inset-block-end: auto;
+    width: min(14rem, 55vw);
+    padding: 12px;
+  }
+  .masthead-photo-note strong {
+    font: 400 1rem/1.5 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .masthead-copy {
+    inset-inline: 12px;
+    inset-block-start: auto;
+    inset-block-end: 40px;
+    width: auto;
+    padding: 20px;
+    transform: none;
+  }
+  .masthead-copy h1 {
+    font: 650 1.9375rem/1.2903 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .hero-delivery-promise {
+    font: 650 1.25rem/1.4 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .hero-lede {
+    font: 400 1rem/1.5 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .masthead-arrow {
+    width: 48px;
+    height: 48px;
+  }
+  .masthead-prev {
+    inset-inline-start: 8px;
+  }
+  .masthead-next {
+    inset-inline-end: 8px;
+  }
+  .delivery-feature-rule {
+    margin-block: 12px;
+  }
+  .public-voucher-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .offers-page .offers-main {
+    padding-block: 32px 56px;
+  }
+  .offers-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .public-voucher-card {
+    min-height: 230px;
+    padding: 20px;
+  }
+  .public-voucher-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: auto;
+  }
+}
+
+.eyebrow {
+  display: none;
+}
+.product-load-sentinel {
+  min-height: 32px;
+  padding: 16px;
+  color: #666666;
+  text-align: center;
+  font: 400 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (pointer: fine) {
+  .nav-link, .option-row, .payment-options label, .account-menu-link, .account-menu-signout, .remove-item {
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  .header-tools .icon-tool {
+    width: 32px;
+    height: 32px;
+  }
+
+  .icon-tool {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (color-gamut: p3) {
+  .review-stars, .star-options label, .qr-demo-warning, .status-pending {
+    color: color(display-p3 0.5101 0.3654 0);
+  }
+
+  .toast-info {
+    border-inline-start-color: color(display-p3 0 0.5473 0.8791);
+  }
+
+  .voucher-feedback.is-info, .status-preparing {
+    color: color(display-p3 0 0.3555 0.5816);
+  }
+}

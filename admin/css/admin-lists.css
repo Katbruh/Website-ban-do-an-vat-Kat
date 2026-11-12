@@ -1,0 +1,596 @@
+/* Danh sách, bảng và phân trang quản trị */
+
+/* 1. Thẻ danh mục và voucher */
+.category-admin-grid, .voucher-admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.category-admin-card, .voucher-admin-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 24px;
+  background: #ffffff;
+}
+.category-admin-card > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.category-admin-card h2, .voucher-admin-card h2 {
+  margin: 0;
+  font: 650 1.25rem/1.4 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.category-admin-card p, .voucher-admin-card p {
+  margin: 8px 0;
+  color: #666666;
+}
+.category-admin-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #fee6e4;
+  color: #8c2224;
+  font: 650 1.25rem/1.4 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.category-admin-card .table-actions, .voucher-admin-card .table-actions {
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.category-products-manager {
+  margin-top: 12px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 12px;
+}
+.category-products-manager summary {
+  color: #8c2224;
+  cursor: pointer;
+  font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.category-products-manager ul {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.category-products-manager li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #e5e5e5;
+}
+.category-products-manager li span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.category-products-add {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  margin-top: 12px;
+}
+.category-products-add select {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding-inline: 12px;
+  border: 1px solid #8d857f;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #252525;
+}
+.voucher-admin-card > small {
+  color: #666666;
+}
+.voucher-admin-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.review-admin-list {
+  display: grid;
+  gap: 12px;
+}
+.review-admin-card {
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 24px;
+  background: #ffffff;
+}
+.review-admin-head, .review-admin-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.review-admin-head > div {
+  display: grid;
+  gap: 4px;
+}
+.review-admin-head > div span, .review-admin-foot time {
+  color: #666666;
+  font: 400 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.review-admin-card > p {
+  margin: 12px 0;
+}
+.admin-empty {
+  padding: 64px;
+  border: 1px dashed #e5e5e5;
+  border-radius: 24px;
+  color: #666666;
+  text-align: center;
+}
+
+/* 2. Giá các lựa chọn và phân trang */
+.admin-variant-prices {
+  margin-top: 4px;
+}
+.admin-variant-prices summary {
+  color: #8c2224;
+  cursor: pointer;
+  font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.admin-variant-prices ul {
+  display: grid;
+  gap: 4px;
+  min-width: 240px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.admin-variant-prices li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.admin-category-products {
+  display: grid;
+  gap: 4px;
+  margin: 16px 0;
+  padding-inline-start: 20px;
+  color: #666666;
+}
+
+.admin-pagination {
+  flex-wrap: wrap;
+  margin-block: 16px 0;
+}
+.admin-pagination button[aria-current="page"] {
+  cursor: default;
+}
+
+.admin-variant-prices ul {
+  min-width: 200px;
+}
+
+/* Danh mục và voucher trên màn hình nhỏ */
+@media (max-width: 42rem) {
+  .category-admin-grid, .voucher-admin-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 3. Bảng và căn chỉnh danh sách */
+.admin-section-heading {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.admin-section-heading > div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.admin-section-heading .eyebrow, .admin-section-heading .helper-text {
+  margin: 0;
+}
+.admin-section-heading .helper-text {
+  max-width: 70ch;
+}
+.table-wrap {
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+}
+.table-wrap table {
+  min-width: 720px;
+}
+.table-wrap th, .table-wrap td {
+  padding: 10px 8px;
+}
+.table-wrap th {
+  text-align: start;
+}
+.table-wrap tbody tr:last-child td {
+  border-bottom: 0;
+}
+.table-wrap tbody tr:hover {
+  background: #faf8f6;
+}
+.table-actions {
+  align-content: flex-start;
+  justify-content: flex-start;
+  gap: 4px 8px;
+}
+.category-admin-card, .voucher-admin-card {
+  display: flex;
+  flex-direction: column;
+}
+.category-admin-card .table-actions, .voucher-admin-card .table-actions {
+  margin-top: auto;
+  padding-top: 12px;
+}
+.admin-category-products {
+  gap: 8px;
+  line-height: 1.5;
+}
+.review-admin-card {
+  display: grid;
+  gap: 12px;
+}
+.review-admin-card > p {
+  margin: 0;
+}
+.review-admin-card .table-actions {
+  justify-content: flex-end;
+}
+
+/* 4. Bảng khách hàng nổi bật */
+.report-order-button {
+  white-space: nowrap;
+}
+.top-customers-table th:nth-child(3), .top-customers-table td:nth-child(3), .top-customers-table th:nth-child(5), .top-customers-table td:nth-child(5) {
+  text-align: center;
+}
+@media (max-width: 42rem) {
+  .admin-section-heading {
+    align-items: flex-start;
+  }
+  .table-wrap table {
+    min-width: 680px;
+  }
+}
+
+/* 5. Căn chỉnh nút thao tác trang */
+.admin-page-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+.report-date-filter {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.report-date-filter > .button, .admin-order-filter > .button {
+  width: 100%;
+  min-height: 48px;
+}
+.admin-order-filter {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.admin-products-table {
+  min-width: 1080px;
+}
+.admin-products-table td:first-child {
+  min-width: 220px;
+}
+.admin-products-table td:last-child {
+  min-width: 210px;
+}
+.admin-product-price-layout {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+}
+.admin-product-price-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.admin-products-table .admin-choice-button {
+  min-height: 0;
+  padding: 2px 0;
+  white-space: nowrap;
+}
+.table-actions > .text-button, .table-actions > a.text-button, .table-actions > button.text-button {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid #d8d1cd;
+  border-radius: 8px;
+  background: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.table-actions > .text-button:hover, .table-actions > a.text-button:hover, .table-actions > button.text-button:hover {
+  border-color: #8c2224;
+  background: #fff7f6;
+}
+.admin-products-table .table-actions, .admin-users-table .table-actions {
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+.admin-users-table {
+  width: 100%;
+  min-width: 1200px;
+  table-layout: fixed;
+}
+.admin-users-table th:nth-child(1), .admin-users-table td:nth-child(1) {
+  width: 120px;
+  white-space: nowrap;
+}
+.admin-users-table th:nth-child(2), .admin-users-table td:nth-child(2) {
+  width: 150px;
+}
+.admin-users-table th:nth-child(3), .admin-users-table td:nth-child(3) {
+  width: 170px;
+  overflow-wrap: anywhere;
+}
+.admin-users-table th:nth-child(4), .admin-users-table td:nth-child(4) {
+  width: 205px;
+  overflow-wrap: anywhere;
+}
+.admin-users-table th:nth-child(5), .admin-users-table td:nth-child(5) {
+  width: 80px;
+  white-space: nowrap;
+}
+.admin-users-table th:nth-child(6), .admin-users-table td:nth-child(6) {
+  width: 115px;
+  white-space: nowrap;
+}
+.admin-users-table th:nth-child(7), .admin-users-table td:nth-child(7) {
+  width: 140px;
+  white-space: nowrap;
+}
+.admin-users-table th:nth-child(8), .admin-users-table td:nth-child(8) {
+  width: 220px;
+}
+.admin-users-table td:last-child {
+  min-width: 220px;
+}
+.admin-users-table th:nth-child(5), .admin-users-table td:nth-child(5), .admin-users-table th:nth-child(7), .admin-users-table td:nth-child(7) {
+  text-align: center;
+}
+.admin-users-table .table-actions {
+  gap: 8px;
+}
+.admin-users-table .table-actions .text-button, .admin-order-table .report-order-button, .customer-history-table .text-button, .top-customers-table .report-order-button {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid #d8d1cd;
+  border-radius: 8px;
+  background: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.admin-users-table .table-actions .text-button:hover, .admin-order-table .report-order-button:hover, .customer-history-table .text-button:hover, .top-customers-table .report-order-button:hover {
+  border-color: #8c2224;
+  background: #fff7f6;
+}
+.admin-order-table {
+  width: 100%;
+  min-width: 1080px;
+  table-layout: fixed;
+}
+.admin-order-table th:nth-child(1), .admin-order-table td:nth-child(1) {
+  width: 180px;
+}
+.admin-order-table th:nth-child(2), .admin-order-table td:nth-child(2) {
+  width: 260px;
+}
+.admin-order-table th:nth-child(3), .admin-order-table td:nth-child(3) {
+  width: 130px;
+  white-space: nowrap;
+}
+.admin-order-table th:nth-child(4), .admin-order-table td:nth-child(4) {
+  width: 115px;
+}
+.admin-order-table th:nth-child(5), .admin-order-table td:nth-child(5) {
+  width: 100px;
+  white-space: nowrap;
+}
+.admin-order-table th:nth-child(6), .admin-order-table td:nth-child(6) {
+  width: 155px;
+}
+.admin-order-table th:nth-child(7), .admin-order-table td:nth-child(7) {
+  width: 170px;
+}
+.admin-order-table td:nth-child(6), .admin-order-table th:nth-child(6), .admin-order-table td:nth-child(7), .admin-order-table th:nth-child(7) {
+  text-align: center;
+}
+.admin-order-table .table-actions {
+  justify-content: center;
+}
+.admin-users-table th:nth-child(7), .admin-users-table td:nth-child(7), .customer-history-table th:nth-child(5), .customer-history-table td:nth-child(5), .admin-reviews-table th:nth-child(5), .admin-reviews-table td:nth-child(5) {
+  text-align: center;
+}
+.admin-order-table td:nth-child(2) {
+  min-width: 260px;
+  padding-right: 18px;
+}
+.admin-order-table th:nth-child(3), .admin-order-table td:nth-child(3) {
+  padding-left: 0;
+  text-align: left;
+}
+.admin-order-table td:nth-child(6) .status-select {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  text-align-last: center;
+}
+.admin-reviews-table {
+  min-width: 1080px;
+  table-layout: fixed;
+}
+.admin-reviews-table th:nth-child(1), .admin-reviews-table td:nth-child(1) {
+  width: 180px;
+}
+.admin-reviews-table th:nth-child(2), .admin-reviews-table td:nth-child(2) {
+  width: 150px;
+}
+.admin-reviews-table th:nth-child(3), .admin-reviews-table td:nth-child(3) {
+  width: 100px;
+  text-align: center;
+}
+.admin-reviews-table th:nth-child(4), .admin-reviews-table td:nth-child(4) {
+  width: 280px;
+  overflow-wrap: anywhere;
+}
+.admin-reviews-table th:nth-child(5), .admin-reviews-table td:nth-child(5) {
+  width: 150px;
+  text-align: center;
+}
+.admin-reviews-table th:nth-child(6), .admin-reviews-table td:nth-child(6) {
+  width: 220px;
+}
+.admin-reviews-table td:nth-child(6) .table-actions {
+  flex-wrap: nowrap;
+}
+.admin-dashboard-orders-table {
+  min-width: 1080px;
+  table-layout: fixed;
+}
+.admin-dashboard-orders-table th:nth-child(1), .admin-dashboard-orders-table td:nth-child(1) {
+  width: 200px;
+  white-space: nowrap;
+}
+.admin-dashboard-orders-table th:nth-child(2), .admin-dashboard-orders-table td:nth-child(2) {
+  width: 250px;
+}
+.admin-dashboard-orders-table th:nth-child(3), .admin-dashboard-orders-table td:nth-child(3) {
+  width: 170px;
+}
+.admin-dashboard-orders-table th:nth-child(4), .admin-dashboard-orders-table td:nth-child(4) {
+  width: 140px;
+  white-space: nowrap;
+}
+.admin-dashboard-orders-table th:nth-child(5), .admin-dashboard-orders-table td:nth-child(5) {
+  width: 200px;
+}
+.top-customers-table {
+  min-width: 980px;
+  table-layout: fixed;
+}
+.top-customers-table th:nth-child(1), .top-customers-table td:nth-child(1) {
+  width: 15%;
+  text-align: center;
+}
+.top-customers-table th:nth-child(2), .top-customers-table td:nth-child(2) {
+  width: 25%;
+}
+.top-customers-table th:nth-child(3), .top-customers-table td:nth-child(3) {
+  width: 12%;
+  text-align: center;
+}
+.top-customers-table th:nth-child(4), .top-customers-table td:nth-child(4) {
+  width: 22%;
+  text-align: center;
+}
+.top-customers-table th:nth-child(5), .top-customers-table td:nth-child(5) {
+  width: 26%;
+  text-align: center;
+}
+.top-customers-table td:nth-child(5) .report-order-button {
+  white-space: nowrap;
+}
+.admin-products-table {
+  table-layout: fixed;
+}
+.admin-products-table th:nth-child(1), .admin-products-table td:nth-child(1) {
+  width: 240px;
+}
+.admin-products-table th:nth-child(2), .admin-products-table td:nth-child(2) {
+  width: 170px;
+  overflow-wrap: anywhere;
+}
+.admin-products-table th:nth-child(3), .admin-products-table td:nth-child(3) {
+  width: 220px;
+}
+.admin-products-table th:nth-child(4), .admin-products-table td:nth-child(4) {
+  width: 130px;
+  text-align: center;
+}
+.admin-products-table th:nth-child(5), .admin-products-table td:nth-child(5) {
+  width: 320px;
+}
+.admin-products-table .table-product {
+  min-width: 0;
+}
+.admin-products-table .table-product strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.order-item-list {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+.order-item-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 82px;
+  align-items: baseline;
+  column-gap: 12px;
+}
+.order-item-list li span {
+  min-width: 0;
+}
+.order-item-list li .order-item-description {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 4px;
+  flex: 1;
+  white-space: nowrap;
+}
+.order-item-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.order-item-quantity {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.order-item-list li strong {
+  min-width: 82px;
+  justify-self: end;
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 42rem) {
+  .report-date-filter, .admin-order-filter {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .admin-page-actions {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+.report-date-filter > .button {
+  align-self: end;
+}
+.admin-section-heading > .button, .admin-section-heading > .admin-page-actions {
+  align-self: center;
+}
+
+/* Giữ các nút thao tác cạnh nhau trên cùng một hàng. */
+.admin-section-heading > .admin-page-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 12px;
+}
+.admin-section-heading > .admin-page-actions .button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}

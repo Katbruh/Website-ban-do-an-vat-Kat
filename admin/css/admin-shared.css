@@ -1,0 +1,126 @@
+/* Kiểu bảng và trạng thái dùng chung trong quản trị */
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: start;
+}
+th {
+  padding: 12px;
+  border-bottom: 1px solid #e5e5e5;
+  color: #666666;
+  font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  white-space: nowrap;
+}
+td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e5e5;
+  vertical-align: middle;
+}
+td small {
+  display: block;
+  margin-top: 4px;
+  color: #666666;
+}
+.table-product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 208px;
+}
+.table-product img {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.text-button {
+  min-height: 44px;
+}
+.danger-link {
+  color: #a22a26;
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding-inline: 8px;
+  border-radius: 9999px;
+  background: #efebe8;
+  color: #666666;
+  font: 500 0.8125rem/1.5385 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+  white-space: nowrap;
+}
+.status-pending {
+  background: #f5eada;
+  color: #845d00;
+}
+.status-preparing {
+  background: #d9efff;
+  color: #005c8a;
+}
+.status-shipping {
+  background: #fee6e4;
+  color: #8c2224;
+}
+.status-completed {
+  background: #dbf1de;
+  color: #00652c;
+}
+.status-cancelled {
+  background: #ffe6e3;
+  color: #a22a26;
+}
+.status-select {
+  min-height: 48px;
+  max-width: 192px;
+  padding-inline: 8px;
+  border: 1px solid #8d857f;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #252525;
+  text-align: center;
+  text-align-last: center;
+}
+.status-toggle {
+  min-height: 40px;
+  padding-inline: 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 9999px;
+  background: #dbf1de;
+  color: #00652c;
+  cursor: pointer;
+}
+.status-toggle.is-unavailable {
+  background: #efebe8;
+  color: #666666;
+}
+
+.admin-content .table-actions {
+  flex-wrap: wrap;
+}
+.admin-content button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (color-gamut: p3) {
+  .status-pending {
+    color: color(display-p3 0.5101 0.3654 0);
+  }
+  .status-preparing {
+    color: color(display-p3 0 0.3555 0.5816);
+  }
+}
