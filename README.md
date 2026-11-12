@@ -1,6 +1,6 @@
 # Kat — website đặt món ăn vặt
 
-Website nhiều trang cho quán ăn vặt Kat, viết bằng HTML, CSS và JavaScript thuần. Các trang hiện dùng nội dung tĩnh để minh họa luồng xem món, đặt hàng và quản trị; website chưa kết nối máy chủ hay cơ sở dữ liệu.
+Website nhiều trang cho quán ăn vặt Kat, xây dựng bằng HTML, CSS và JavaScript thuần. Đây là bản demo giao diện và luồng thao tác, chưa kết nối máy chủ, cơ sở dữ liệu hay cổng thanh toán.
 
 ## Mở website
 
@@ -12,23 +12,37 @@ py -m http.server 8000
 
 Sau đó truy cập `http://localhost:8000`.
 
-## Các trang
+## Các trang khách hàng
 
 | Trang | Nội dung |
 | --- | --- |
-| `index.html` | Trang chủ, carousel chuyển thủ công, bốn món bán chạy và thông tin cửa hàng |
-| `menu.html` | Danh mục, form tìm kiếm và lọc, 12 thẻ món tĩnh, phân trang minh họa |
-| `product-detail.html` | Chi tiết tĩnh món Mẹt viên chiên, lựa chọn món và đánh giá |
-| `offers.html` | Voucher và combo |
-| `cart.html` | Giỏ hàng, thông tin giao nhận và hình thức thanh toán tĩnh |
-| `order-success.html` | Trang xác nhận đơn hàng |
-| `orders.html` | Tra cứu và ba đơn hàng tĩnh |
-| `stores.html`, `feedback.html` | Thông tin cửa hàng và form góp ý |
-| `login.html`, `admin/admin-login.html` | Form đăng nhập và đăng ký minh họa |
-| `admin/` | Dashboard, trang đăng nhập và các trang quản trị riêng |
+| `index.html` | Trang chủ, carousel tự chuyển mỗi 5 giây, nút chuyển slide và món bán chạy |
+| `menu.html` | 12 thẻ món tĩnh; nút danh mục chỉ đổi trạng thái chọn; nút tìm kiếm mở trang kết quả |
+| `menu-results.html` | Kết quả mẫu hardcode cho danh mục Gà rán & đồ chiên và mức giá trên 30.000đ; không thực hiện lọc thật |
+| `product-detail.html` | Trang chi tiết mẫu của Mẹt viên chiên, tùy chọn món và đánh giá |
+| `offers.html` | Ba voucher mẫu |
+| `cart.html`, `order-success.html` | Giỏ hàng mẫu, thông tin nhận món và trang xác nhận đặt hàng |
+| `orders.html`, `order-detail.html` | Tra cứu bằng số điện thoại mẫu, lịch sử ba đơn và chi tiết đơn khách hàng |
+| `account-settings.html`, `account-addresses.html`, `account-orders.html` | Cài đặt tài khoản, sổ địa chỉ và lịch sử đơn hàng |
+| `login.html`, `forgot-password.html`, `reset-password.html` | Đăng nhập/đăng ký và luồng đổi mật khẩu mô phỏng |
+| `stores.html`, `feedback.html` | Thông tin cửa hàng và góp ý |
 
-`css/style.css` chứa giao diện khách hàng; `admin/` gom các trang, stylesheet và script riêng của quản trị. Thư mục `images/` lưu logo và ảnh món ăn, còn `js/` xử lý tương tác đơn giản như chuyển tab, thông báo, carousel thủ công và điều hướng giữa các trang.
+## Khu vực quản trị
 
-## Giới hạn hiện tại
+Mở `admin/admin-login.html` để vào luồng quản trị. Các trang quản trị nằm trong `admin/`, gồm dashboard, khách hàng, đơn hàng, thực đơn, danh mục, voucher, đánh giá và góp ý. Trang chi tiết đơn hàng và khách hàng có tệp HTML riêng; các biểu mẫu thêm/sửa cũng dùng trang riêng.
 
-Nội dung, giỏ hàng và đơn hàng được viết sẵn trong HTML. Các form và nút minh họa chỉ hiện thông báo hoặc chuyển trang theo luồng đã định; đăng nhập không xác thực, đặt hàng không tạo giao dịch và thay đổi không được lưu lại. Muốn vận hành thực tế cần bổ sung máy chủ, cơ sở dữ liệu và tích hợp thanh toán.
+## Tổ chức mã nguồn
+
+- `css/` chứa CSS giao diện khách hàng; `css/style.css` nạp các tệp CSS theo từng nhóm trang.
+- `admin/css/` chứa CSS quản trị; `admin/css/admin.css` nạp các tệp CSS quản trị theo chức năng.
+- `js/` chứa JavaScript dùng chung và các luồng khách hàng.
+- `admin/js/` chứa JavaScript riêng của các trang quản trị.
+- `images/` chứa logo và ảnh minh họa món ăn.
+
+## Giới hạn của bản demo
+
+- Các món, voucher, khách hàng và đơn hàng là dữ liệu mẫu viết sẵn. Trang kết quả thực đơn không đọc từ khóa hay bộ lọc để tạo kết quả.
+- Các thao tác thêm/sửa/xóa và ẩn/hiện trong admin chỉ minh họa bằng thông báo; không cập nhật dữ liệu và không đồng bộ với thực đơn khách hàng.
+- Đăng nhập không xác thực tài khoản thật. Luồng quên mật khẩu không gửi SMS; OTP và đổi mật khẩu chỉ mô phỏng.
+- Một số thông tin tài khoản và phiên đăng nhập được giữ trong `localStorage` của trình duyệt để minh họa giao diện. Thông tin này không được lưu trên máy chủ hay chia sẻ giữa các thiết bị.
+- Đặt hàng không tạo giao dịch thật; các trang xác nhận, tra cứu và lịch sử đơn dùng dữ liệu mẫu.
