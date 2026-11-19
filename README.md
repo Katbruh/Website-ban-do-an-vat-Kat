@@ -44,4 +44,5 @@ Mở `admin/admin-login.html` để vào luồng quản trị. Các trang quản
 - Các món, voucher, khách hàng và đơn hàng là dữ liệu mẫu viết sẵn. Trang kết quả thực đơn không đọc từ khóa hay bộ lọc để tạo kết quả.
 - Các thao tác thêm/sửa/xóa và ẩn/hiện trong admin chỉ minh họa bằng thông báo; không cập nhật dữ liệu và không đồng bộ với thực đơn khách hàng.
 - Đăng nhập không xác thực tài khoản thật. Luồng quên mật khẩu không gửi SMS; OTP và đổi mật khẩu chỉ mô phỏng.
+- Một số thông tin tài khoản và phiên đăng nhập được giữ trong `localStorage` của trình duyệt để minh họa giao diện. Thông tin này không được lưu trên máy chủ hay chia sẻ giữa các thiết bị.
 - Đặt hàng không tạo giao dịch thật; các trang xác nhận, tra cứu và lịch sử đơn dùng dữ liệu mẫu.
